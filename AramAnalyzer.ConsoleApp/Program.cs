@@ -1,12 +1,26 @@
 ﻿using System;
 
-namespace AramAnalyzer.ConsoleApp
+namespace AramAnalyzer
 {
-	class Program
+	internal class Program
 	{
-		static void Main(string[] args)
+		private static void Main()
 		{
-			Console.WriteLine("Hello World!");
+			Console.WriteLine("Welcome to AramAnalyzer!\n");
+
+			string nickname;
+			string server;
+
+			// Ask for nickname and region until it's correct.
+			do
+			{
+				Console.WriteLine("Please enter your League of Legends nickname:");
+				nickname = Console.ReadLine();
+
+				Console.WriteLine("Please enter your League of Legends server (eune/euw):");
+				server = Console.ReadLine();
+			}
+			while (Code.Riot.GetCurrentGame(nickname, server) == null); ;
 		}
 	}
 }
