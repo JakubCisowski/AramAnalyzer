@@ -12,6 +12,18 @@ namespace AramAnalyzer.Code
 		private static RiotApi _api;
 		private static CurrentGame currentGame;
 
+		public static CurrentGame CurrentGame
+		{
+			get
+			{
+				return currentGame;
+			}
+			set
+			{
+				CurrentGame=value;
+			}
+		}
+
 		static Riot()
 		{
 			// Get API key from resources.

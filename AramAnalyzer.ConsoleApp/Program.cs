@@ -20,7 +20,11 @@ namespace AramAnalyzer
 				Console.WriteLine("Please enter your League of Legends server (eune/euw):");
 				server = Console.ReadLine();
 			}
-			while (Code.Riot.GetCurrentGame(nickname, server) == null); ;
+			while (Code.Riot.GetCurrentGame(nickname, server) == null);
+
+			// Analyze current game.
+			Code.Analyzer.Analyze();
+
 		}
 	}
 }
