@@ -6,6 +6,8 @@ namespace AramAnalyzer
 	{
 		private static void Main()
 		{
+			Code.Wiki.GetChampionBuffs("Aatrox");
+
 			Console.WriteLine("Welcome to AramAnalyzer!\n");
 
 			string nickname;

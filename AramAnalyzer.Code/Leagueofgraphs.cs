@@ -7,7 +7,7 @@ namespace AramAnalyzer.Code
 {
 	public static class Leagueofgraphs
 	{
-		private static string _URL; // = @"https://www.leagueofgraphs.com/champions/builds/reksai/iron/aram";
+		private static string _URL;
 
 		public static string URL
 		{

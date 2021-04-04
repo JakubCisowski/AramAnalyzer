@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AramAnalyzer.Code
 {
 	public static class Analyzer
 	{
-		public static Dictionary<string, double> BlueTeamChampions{ get; set;}
-		public static Dictionary<string, double> RedTeamChampions{ get; set;}
+		public static Dictionary<string, double> BlueTeamChampions { get; set; }
+		public static Dictionary<string, double> RedTeamChampions { get; set; }
 
 		static Analyzer()
 		{
@@ -27,9 +27,9 @@ namespace AramAnalyzer.Code
 			// BLUE TEAM
 
 			Console.WriteLine();
-			Console.WriteLine("------------------------------------------------");
+			Console.WriteLine("------------------------------------------------------------------------------------------------");
 			Console.BackgroundColor = ConsoleColor.Blue;
-			Console.WriteLine(" BLUE TEAM \t\t WINRATE ");
+			Console.WriteLine(" BLUE TEAM \t\t WINRATE \t DAMAGE DEALT \t DAMAGE RECEIVED ");
 			Console.ResetColor();
 			foreach (var participant in Riot.CurrentGame.Participants)
 			{
@@ -38,7 +38,9 @@ namespace AramAnalyzer.Code
 					string championName = Ddragon.GetChampionName(participant.ChampionId);
 					double championWinrate = Leagueofgraphs.GetWinrate(championName);
 
-					Console.Write($"{championName}{(championName.Length > 8 ? "\t" : "\t\t")}\t");
+					Console.Write($"{championName}{(championName.Length > 7 ? "\t" : "\t\t")}\t");
+
+					// Select winrate text color.
 
 					if (championWinrate >= 52)
 					{
@@ -57,8 +59,36 @@ namespace AramAnalyzer.Code
 						Console.ForegroundColor = ConsoleColor.Red;
 					}
 
-					Console.WriteLine($"{championWinrate}");
+					Console.Write($"{championWinrate}");
 					Console.ResetColor();
+
+					string championBuffs = Wiki.GetChampionBuffs(championName);
+
+					if (championBuffs[2] == '+')
+					{
+						// Champion is buffed.
+						Console.ForegroundColor = ConsoleColor.Green;
+					}
+					else if (championBuffs[2] == '-')
+					{
+						// Champion is nerfed.
+						Console.ForegroundColor = ConsoleColor.Red;
+					}
+					else if (championBuffs[4] == '-')
+					{
+						// Champion is buffed (only damage received).
+						Console.ForegroundColor = ConsoleColor.Green;
+
+					}
+					else
+					{
+						// Either no changes, or only damage received nerf.
+						Console.ForegroundColor = ConsoleColor.Red;
+					}
+
+					Console.WriteLine(championBuffs);
+					Console.ResetColor();
+
 
 					// Add champion with winrate to BlueTeam dictionary.
 					BlueTeamChampions.Add(championName, championWinrate);
@@ -72,7 +102,7 @@ namespace AramAnalyzer.Code
 			// RED TEAM
 
 			Console.BackgroundColor = ConsoleColor.Red;
-			Console.WriteLine(" RED TEAM \t\t WINRATE ");
+			Console.WriteLine(" RED TEAM \t\t WINRATE \t DAMAGE DEALT \t DAMAGE RECEIVED ");
 			Console.ResetColor();
 			foreach (var participant in Riot.CurrentGame.Participants)
 			{
@@ -81,7 +111,9 @@ namespace AramAnalyzer.Code
 					string championName = Ddragon.GetChampionName(participant.ChampionId);
 					double championWinrate = Leagueofgraphs.GetWinrate(championName);
 
-					Console.Write($"{championName}{(championName.Length > 8 ? "\t" : "\t\t")}\t");
+					Console.Write($"{championName}{(championName.Length > 7 ? "\t" : "\t\t")}\t");
+
+					// Select winrate text color.
 
 					if (championWinrate >= 52)
 					{
@@ -100,7 +132,34 @@ namespace AramAnalyzer.Code
 						Console.ForegroundColor = ConsoleColor.Red;
 					}
 
-					Console.WriteLine($"{championWinrate}");
+					Console.Write($"{championWinrate}");
+					Console.ResetColor();
+
+					string championBuffs = Wiki.GetChampionBuffs(championName);
+
+					if (championBuffs[2] == '+')
+					{
+						// Champion is buffed.
+						Console.ForegroundColor = ConsoleColor.Green;
+					}
+					else if (championBuffs[2] == '-')
+					{
+						// Champion is nerfed.
+						Console.ForegroundColor = ConsoleColor.Red;
+					}
+					else if (championBuffs[4] == '-')
+					{
+						// Champion is buffed (only damage received).
+						Console.ForegroundColor = ConsoleColor.Green;
+
+					}
+					else
+					{
+						// Either no changes, or only damage received nerf.
+						Console.ForegroundColor = ConsoleColor.Red;
+					}
+
+					Console.WriteLine(championBuffs);
 					Console.ResetColor();
 
 					// Add champion with winrate to RedTeam dictionary.
@@ -110,7 +169,7 @@ namespace AramAnalyzer.Code
 			Console.BackgroundColor = ConsoleColor.Red;
 			Console.WriteLine($" AVERAGE WINRATE: \t{Math.Round(RedTeamChampions.Values.Average(), 1)}");
 			Console.ResetColor();
-			Console.WriteLine("------------------------------------------------");
+			Console.WriteLine("------------------------------------------------------------------------------------------------");
 			Console.WriteLine();
 		}
 	}
