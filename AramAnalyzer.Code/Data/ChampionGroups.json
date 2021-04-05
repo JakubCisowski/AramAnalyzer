@@ -1,0 +1,28 @@
+{
+	"winrates":
+	{
+		"AdAssassin": [],
+		"ADC": [],
+		"BurstMage": [],
+		"Bruiser": [],
+		"ControlMage": [],
+		"Poke": [],
+		"Engage": [],
+		"Support": [],
+		"Tank": [],
+		"Waveclear": []
+	},
+	"champions":
+	{
+		"AdAssassin": ["Zed","KhaZix","MasterYi"],
+		"ADC": ["Jinx","Twitch","Lucian","Aphelios","Caitlyn","Draven"],
+		"BurstMage": ["Fizz","Evelynn","Syndra","Ahri","Akali","Annie","Brand","Diana"],
+		"Bruiser": ["Olaf","Aatrox","Jax", "Camille","Darius"],
+		"ControlMage": ["Heimerdinger","Veigar","Cassiopeia","AurelionSol","Azir","Bard"],
+		"Poke": ["Jayce", "Xerath", "KaiSa", "KogMaw","Ashe","Corki"],
+		"Engage": ["Nautilus","Amumu","Lissandra","Alistar"],
+		"Support": ["Seraphine","Taric","Ivern","Braum"],
+		"Tank": ["DrMundo","Sett","ChoGath","Blitzcrank"],
+		"Waveclear": ["Sivir", "Ziggs", "Ekko","Anivia"]
+	}
+}
