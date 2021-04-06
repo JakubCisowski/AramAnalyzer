@@ -6,7 +6,7 @@ namespace AramAnalyzer
 	{
 		private static void Main()
 		{
-			Code.Wiki.GetChampionBuffs("Aatrox");
+			Code.Data.DataResearch.Research.LoadChampionGroups();
 
 			Console.WriteLine("Welcome to AramAnalyzer!\n");
 
