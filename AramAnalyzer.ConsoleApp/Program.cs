@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace AramAnalyzer
 {
@@ -7,6 +8,7 @@ namespace AramAnalyzer
 		private static void Main()
 		{
 			Code.Data.DataResearch.Research.LoadChampionGroups();
+			Code.Data.DataResearch.Research.GatherData("kaisa diff");
 
 			Console.WriteLine("Welcome to AramAnalyzer!\n");
 
@@ -26,7 +28,6 @@ namespace AramAnalyzer
 
 			// Analyze current game.
 			Code.Analyzer.Analyze();
-
 		}
 	}
 }
