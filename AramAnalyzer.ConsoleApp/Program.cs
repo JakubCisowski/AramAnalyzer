@@ -1,16 +1,15 @@
-﻿using System;
-using System.IO;
-
-namespace AramAnalyzer
+﻿namespace AramAnalyzer
 {
 	internal class Program
 	{
 		private static void Main()
 		{
 			Code.Data.DataResearch.Research.LoadChampionGroups();
-			Code.Data.DataResearch.Research.GatherData("kaisa diff");
+			Code.Data.DataResearch.Research.GatherData("kaisa diff", "EpicNoob666", 250);
 
-			Console.WriteLine("Welcome to AramAnalyzer!\n");
+			Code.Data.DataResearch.Research.GetChampionGroupsWinrates();
+
+			/*Console.WriteLine("Welcome to AramAnalyzer!\n");
 
 			string nickname;
 			string server;
@@ -27,7 +26,7 @@ namespace AramAnalyzer
 			while (Code.Riot.GetCurrentGame(nickname, server) == null);
 
 			// Analyze current game.
-			Code.Analyzer.Analyze();
+			Code.Analyzer.Analyze();*/
 		}
 	}
 }
