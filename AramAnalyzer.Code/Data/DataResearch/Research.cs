@@ -1,13 +1,12 @@
 ﻿using Newtonsoft.Json.Linq;
 using RiotSharp;
-using RiotSharp.Endpoints.SummonerEndpoint;
 using RiotSharp.Endpoints.MatchEndpoint;
+using RiotSharp.Endpoints.SummonerEndpoint;
 using RiotSharp.Misc;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 
 namespace AramAnalyzer.Code.Data.DataResearch
 {
@@ -77,29 +76,9 @@ namespace AramAnalyzer.Code.Data.DataResearch
 			ChampionGroups.Add((championGroup, winLossPairs));
 		}
 
-		public static void EnforceRateLimits(int requestCounter)
+		public static void GatherData(Region region, string startName, string defaultErrorName, int gameLimit)
 		{
-			if (requestCounter % LimitPerTwoMinutes == 0)
-			{
-				// Wait 2 minutes.
-				Console.WriteLine("Waiting 2 minutes");
-				Thread.Sleep(120000);
-			}
-			else if (requestCounter % LimitPerSecond == 0)
-			{
-				// Wait 1 second.
-				Console.WriteLine("Waiting 1 second");
-				Thread.Sleep(1000);
-			}
-		}
-
-		public static void GatherData(string startName, string defaultErrorName, int gameLimit)
-		{
-			// This function gathers about 50 games/minute = 3000/hour = 72000/day = 504000/week.
-
-			const Region researchRegion = Region.Eune;
-
-			int requestCounter = 0;
+			Region researchRegion = region;
 
 			int gamesCounter = 0;
 
@@ -125,13 +104,11 @@ namespace AramAnalyzer.Code.Data.DataResearch
 					try
 					{
 						summoner = _api.Summoner.GetSummonerByNameAsync(researchRegion, startName).Result;
-						EnforceRateLimits(++requestCounter);
 
 						summonerId = summoner.AccountId;
 
 						// Save his match history.
 						matchHistory = _api.Match.GetMatchListAsync(researchRegion, summonerId, queues: new List<int>() { 450 }).Result;
-						EnforceRateLimits(++requestCounter);
 					}
 					catch (Exception)
 					{
@@ -143,8 +120,6 @@ namespace AramAnalyzer.Code.Data.DataResearch
 						startName = defaultErrorNickname;
 						continue;
 					}
-
-					
 
 					// Check if he has played aram games.
 					if (matchHistory.Matches.Count > 0)
@@ -162,8 +137,6 @@ namespace AramAnalyzer.Code.Data.DataResearch
 								continue;
 							}
 
-							EnforceRateLimits(++requestCounter);
-
 							var blueParticipants = match.Participants.Where(x => x.TeamId == 100).ToList();
 							var redParticipants = match.Participants.Where(x => x.TeamId == 200).ToList();
 
@@ -175,7 +148,7 @@ namespace AramAnalyzer.Code.Data.DataResearch
 							Console.WriteLine($"Game #{++gamesCounter} loaded.");
 							Console.ResetColor();
 							// Check if it reached game limit.
-							if(gamesCounter >= gameLimit)
+							if (gamesCounter >= gameLimit)
 							{
 								Console.WriteLine($"{gamesCounter} games loaded, finishing.");
 								writer.Close();
@@ -205,7 +178,7 @@ namespace AramAnalyzer.Code.Data.DataResearch
 		{
 			// Remove duplicate games from research data.
 			string[] lines = File.ReadAllLines(@"C:\Programowanie\Fun\AramAnalyzer\AramAnalyzer.ConsoleApp\bin\Debug\net5.0\Data\DataResearch\Games.csv");
-			File.WriteAllLines(@"C:\Programowanie\Fun\AramAnalyzer\AramAnalyzer.ConsoleApp\bin\Debug\net5.0\Data\DataResearch\Games.csv", lines.Distinct().Where(x=>x.Count(y => y == ',') <= 10).ToArray());
+			File.WriteAllLines(@"C:\Programowanie\Fun\AramAnalyzer\AramAnalyzer.ConsoleApp\bin\Debug\net5.0\Data\DataResearch\Games.csv", lines.Distinct().Where(x => x.Count(y => y == ',') <= 10).ToArray());
 		}
 
 		// Checks winrates of champion groups
