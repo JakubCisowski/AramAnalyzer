@@ -35,20 +35,20 @@ namespace AramAnalyzer.Code
 
 			// HTML document
 			var doc = web.Load(URL);
-			
+
 			// Select node with winrate.
 			var node = doc.DocumentNode
 				.SelectNodes("/html/body/div[2]/div[3]/div[3]/div[1]/div[2]/div/div[1]/a[1]/div/div/div/div[1]/div[2]/div/div[1]")
 				?.FirstOrDefault();
 
 			// If node wasn't found, check another Xpath.
-			if(node == null)
+			if (node == null)
 			{
 				node = doc.DocumentNode
 				.SelectNodes("/html/body/div[2]/div[3]/div[3]/div[2]/div[2]/div/div[1]/a[1]/div/div/div/div[1]/div[2]/div/div[1]")
 				?.FirstOrDefault();
 			}
-			
+
 			string winrateString = node.InnerText.Substring(10, 4);
 
 			double winrate = double.Parse(winrateString, CultureInfo.InvariantCulture);

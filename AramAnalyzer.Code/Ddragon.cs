@@ -1,5 +1,4 @@
-﻿using HtmlAgilityPack;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -15,7 +14,7 @@ namespace AramAnalyzer.Code
 		static Ddragon()
 		{
 			using var client = new WebClient();
-			
+
 			// Load game version.
 			string versionUrl = @"https://ddragon.leagueoflegends.com/api/versions.json";
 			string jsonString = client.DownloadString(versionUrl);
@@ -47,7 +46,7 @@ namespace AramAnalyzer.Code
 
 		public static string GetChampionFullName(string championName)
 		{
-			return ChampionPairs.Values.FirstOrDefault(x=>x.Id == championName).Name;
+			return ChampionPairs.Values.FirstOrDefault(x => x.Id == championName).Name;
 		}
 	}
 }

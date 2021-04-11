@@ -20,7 +20,7 @@ namespace AramAnalyzer.Code
 			}
 			set
 			{
-				CurrentGame=value;
+				CurrentGame = value;
 			}
 		}
 

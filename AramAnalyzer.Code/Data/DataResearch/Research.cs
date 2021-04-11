@@ -16,6 +16,11 @@ namespace AramAnalyzer.Code.Data.DataResearch
 		private static RiotApi _api;
 		private static Random _rng;
 
+		// File paths.
+		private static string DataPath = @"C:\Programowanie\Fun\AramAnalyzer\AramAnalyzer.ConsoleApp\bin\Debug\net5.0\Data\DataResearch\Games.csv";
+
+		private static string ReportPath = @"C:\Programowanie\Fun\AramAnalyzer\AramAnalyzer.ConsoleApp\bin\Debug\net5.0\Data\DataResearch\DataReport.txt";
+
 		// Request limits.
 		private const int LimitPerSecond = 20;
 
@@ -93,7 +98,7 @@ namespace AramAnalyzer.Code.Data.DataResearch
 
 			// Gather data.
 
-			using (StreamWriter writer = new StreamWriter(@"C:\Programowanie\Fun\AramAnalyzer\AramAnalyzer.ConsoleApp\bin\Debug\net5.0\Data\DataResearch\Games.csv", true))
+			using (StreamWriter writer = new StreamWriter(DataPath, true))
 			{
 				for (int i = 0; i < accountsAmount; i++)
 				{
@@ -150,7 +155,7 @@ namespace AramAnalyzer.Code.Data.DataResearch
 							// Check if it reached game limit.
 							if (gamesCounter >= gameLimit)
 							{
-								Console.WriteLine($"{gamesCounter} games loaded, finishing.");
+								Console.WriteLine($"{gamesCounter} games loaded.");
 								writer.Close();
 								DeleteRepeatedRows();
 								return;
@@ -176,15 +181,24 @@ namespace AramAnalyzer.Code.Data.DataResearch
 
 		public static void DeleteRepeatedRows()
 		{
+			int gamesAmount = File.ReadLines(DataPath).Count() - 1;
+
 			// Remove duplicate games from research data.
-			string[] lines = File.ReadAllLines(@"C:\Programowanie\Fun\AramAnalyzer\AramAnalyzer.ConsoleApp\bin\Debug\net5.0\Data\DataResearch\Games.csv");
-			File.WriteAllLines(@"C:\Programowanie\Fun\AramAnalyzer\AramAnalyzer.ConsoleApp\bin\Debug\net5.0\Data\DataResearch\Games.csv", lines.Distinct().Where(x => x.Count(y => y == ',') <= 10).ToArray());
+			string[] lines = File.ReadAllLines(DataPath);
+			File.WriteAllLines(DataPath, lines.Distinct().Where(x => x.Count(y => y == ',') <= 10).ToArray());
+
+			Console.WriteLine($"{gamesAmount - File.ReadLines(DataPath).Count() + 1} repeated games removed.");
 		}
 
 		// Checks winrates of champion groups
 		public static void GetChampionGroupsWinrates()
 		{
-			using (var reader = new StreamReader(@"C:\Programowanie\Fun\AramAnalyzer\AramAnalyzer.ConsoleApp\bin\Debug\net5.0\Data\DataResearch\Games.csv"))
+			// Load champion groups.
+			LoadChampionGroups();
+
+			Console.WriteLine($"Champion groups loaded.");
+
+			using (var reader = new StreamReader(DataPath))
 			{
 				string line = "";
 
@@ -230,9 +244,9 @@ namespace AramAnalyzer.Code.Data.DataResearch
 			}
 
 			// Save data.
-			using var writer = new StreamWriter(@"C:\Programowanie\Fun\AramAnalyzer\AramAnalyzer.ConsoleApp\bin\Debug\net5.0\Data\DataResearch\DataReport.txt");
+			using var writer = new StreamWriter(ReportPath);
 
-			int gamesAmount = File.ReadLines(@"C:\Programowanie\Fun\AramAnalyzer\AramAnalyzer.ConsoleApp\bin\Debug\net5.0\Data\DataResearch\Games.csv").Count() - 1;
+			int gamesAmount = File.ReadLines(DataPath).Count() - 1;
 
 			writer.WriteLine($"Total amount of analyzed games: {gamesAmount}");
 			writer.WriteLine($"Sample size: {gamesAmount} * 2 = {gamesAmount * 2}");
@@ -251,6 +265,8 @@ namespace AramAnalyzer.Code.Data.DataResearch
 				}
 				writer.WriteLine("-------------------");
 			}
+
+			Console.WriteLine($"Data report created.");
 		}
 	}
 }
