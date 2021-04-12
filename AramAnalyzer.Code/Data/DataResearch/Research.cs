@@ -21,6 +21,8 @@ namespace AramAnalyzer.Code.Data.DataResearch
 
 		private static string ReportPath = @"C:\Programowanie\Fun\AramAnalyzer\AramAnalyzer.ConsoleApp\bin\Debug\net5.0\Data\DataResearch\DataReport.txt";
 
+		private static string NicknamesPath = @"C:\Programowanie\Fun\AramAnalyzer\AramAnalyzer.ConsoleApp\bin\Debug\net5.0\Data\DataResearch\Nicknames.txt";
+
 		// Request limits.
 		private const int LimitPerSecond = 20;
 
@@ -81,9 +83,12 @@ namespace AramAnalyzer.Code.Data.DataResearch
 			ChampionGroups.Add((championGroup, winLossPairs));
 		}
 
-		public static void GatherData(Region region, string startName, string defaultErrorName, int gameLimit)
+		public static void GatherData(Region region, int gameLimit)
 		{
 			Region researchRegion = region;
+
+			// Currently analyzed nickname.
+			string currentName = "";
 
 			int gamesCounter = 0;
 
@@ -93,22 +98,25 @@ namespace AramAnalyzer.Code.Data.DataResearch
 			// How many games do we search per account.
 			const int accountGamesLimit = 500;
 
-			// Default nickname in case of exception.
-			string defaultErrorNickname = defaultErrorName;
-
 			// Gather data.
 
 			using (StreamWriter writer = new StreamWriter(DataPath, true))
 			{
 				for (int i = 0; i < accountsAmount; i++)
 				{
+					// Randomize nickname.
+					if (currentName == "")
+					{
+						currentName = GetRandomNickname();
+					}
+
 					// Find summoner.
 					Summoner summoner;
 					string summonerId = "";
 					var matchHistory = new MatchList();
 					try
 					{
-						summoner = _api.Summoner.GetSummonerByNameAsync(researchRegion, startName).Result;
+						summoner = _api.Summoner.GetSummonerByNameAsync(researchRegion, currentName).Result;
 
 						summonerId = summoner.AccountId;
 
@@ -118,11 +126,11 @@ namespace AramAnalyzer.Code.Data.DataResearch
 					catch (Exception)
 					{
 						Console.ForegroundColor = ConsoleColor.Red;
-						Console.WriteLine($"There is no summoner named '{startName}' on {researchRegion.ToString()} server!\n");
+						Console.WriteLine($"There is no summoner named '{currentName}' on {researchRegion.ToString()} server!\n");
 						Console.ResetColor();
 
-						// Continue with default nickname.
-						startName = defaultErrorNickname;
+						// Continue (this will randomize nickname once again).
+						currentName = "";
 						continue;
 					}
 
@@ -145,8 +153,15 @@ namespace AramAnalyzer.Code.Data.DataResearch
 							var blueParticipants = match.Participants.Where(x => x.TeamId == 100).ToList();
 							var redParticipants = match.Participants.Where(x => x.TeamId == 200).ToList();
 
-							// Save match data to .csv file.
-							writer.WriteLine($"{Ddragon.GetChampionName(blueParticipants[0].ChampionId)},{Ddragon.GetChampionName(blueParticipants[1].ChampionId)},{Ddragon.GetChampionName(blueParticipants[2].ChampionId)},{Ddragon.GetChampionName(blueParticipants[3].ChampionId)},{Ddragon.GetChampionName(blueParticipants[4].ChampionId)},{Ddragon.GetChampionName(redParticipants[0].ChampionId)},{Ddragon.GetChampionName(redParticipants[1].ChampionId)},{Ddragon.GetChampionName(redParticipants[2].ChampionId)},{Ddragon.GetChampionName(redParticipants[3].ChampionId)},{Ddragon.GetChampionName(redParticipants[4].ChampionId)},{(blueParticipants[0].Stats.Winner ? "Blue" : "Red")}");
+							try
+							{
+								// Save match data to .csv file.
+								writer.WriteLine($"{Ddragon.GetChampionName(blueParticipants[0].ChampionId)},{Ddragon.GetChampionName(blueParticipants[1].ChampionId)},{Ddragon.GetChampionName(blueParticipants[2].ChampionId)},{Ddragon.GetChampionName(blueParticipants[3].ChampionId)},{Ddragon.GetChampionName(blueParticipants[4].ChampionId)},{Ddragon.GetChampionName(redParticipants[0].ChampionId)},{Ddragon.GetChampionName(redParticipants[1].ChampionId)},{Ddragon.GetChampionName(redParticipants[2].ChampionId)},{Ddragon.GetChampionName(redParticipants[3].ChampionId)},{Ddragon.GetChampionName(redParticipants[4].ChampionId)},{(blueParticipants[0].Stats.Winner ? "Blue" : "Red")}");
+							}
+							catch
+							{
+								continue;
+							}
 
 							// Display progress in console.
 							Console.ForegroundColor = ConsoleColor.Blue;
@@ -163,13 +178,13 @@ namespace AramAnalyzer.Code.Data.DataResearch
 
 							// Get random name for next outer loop iteration;
 							var randomName = match.ParticipantIdentities[_rng.Next(0, 10)].Player.SummonerName;
-							startName = randomName;
+							currentName = randomName;
 						}
 					}
 					else
 					{
-						// If not, continue with default nickname.
-						startName = defaultErrorNickname;
+						// If not, continue (this will randomize nickname once again).
+						currentName = "";
 						continue;
 					}
 				}
@@ -187,7 +202,14 @@ namespace AramAnalyzer.Code.Data.DataResearch
 			string[] lines = File.ReadAllLines(DataPath);
 			File.WriteAllLines(DataPath, lines.Distinct().Where(x => x.Count(y => y == ',') <= 10).ToArray());
 
-			Console.WriteLine($"{gamesAmount - File.ReadLines(DataPath).Count() + 1} repeated games removed.");
+			if(gamesAmount - File.ReadLines(DataPath).Count() + 1 != 1)
+			{
+				Console.WriteLine($"{gamesAmount - File.ReadLines(DataPath).Count() + 1} repeated games removed.");
+			}
+			else
+			{
+				Console.WriteLine($"{gamesAmount - File.ReadLines(DataPath).Count() + 1} repeated game removed.");
+			}
 		}
 
 		// Checks winrates of champion groups
@@ -268,5 +290,18 @@ namespace AramAnalyzer.Code.Data.DataResearch
 
 			Console.WriteLine($"Data report created.");
 		}
-	}
+		public static string GetRandomNickname()
+		{
+			using (var reader = new StreamReader(NicknamesPath))
+			{
+				List<string> nicknames = File.ReadAllLines(NicknamesPath).ToList();
+
+				var randomNumber = _rng.Next(0, nicknames.Count() - 1);
+
+				var randomNickname = nicknames[randomNumber];
+
+				return randomNickname;
+			}
+		}
+	}	
 }
