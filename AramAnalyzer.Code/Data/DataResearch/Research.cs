@@ -202,7 +202,7 @@ namespace AramAnalyzer.Code.Data.DataResearch
 			string[] lines = File.ReadAllLines(DataPath);
 			File.WriteAllLines(DataPath, lines.Distinct().Where(x => x.Count(y => y == ',') <= 10).ToArray());
 
-			if(gamesAmount - File.ReadLines(DataPath).Count() + 1 != 1)
+			if (gamesAmount - File.ReadLines(DataPath).Count() + 1 != 1)
 			{
 				Console.WriteLine($"{gamesAmount - File.ReadLines(DataPath).Count() + 1} repeated games removed.");
 			}
@@ -290,18 +290,19 @@ namespace AramAnalyzer.Code.Data.DataResearch
 
 			Console.WriteLine($"Data report created.");
 		}
+
 		public static string GetRandomNickname()
 		{
 			using (var reader = new StreamReader(NicknamesPath))
 			{
 				List<string> nicknames = File.ReadAllLines(NicknamesPath).ToList();
 
-				var randomNumber = _rng.Next(0, nicknames.Count() - 1);
+				var randomNumber = _rng.Next(0, nicknames.Count());
 
 				var randomNickname = nicknames[randomNumber];
 
 				return randomNickname;
 			}
 		}
-	}	
+	}
 }
