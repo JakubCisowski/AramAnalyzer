@@ -98,16 +98,31 @@ namespace AramAnalyzer.Code.Data.DataResearch
 			// How many games do we search per account.
 			const int accountGamesLimit = 500;
 
+			// Counters (for optimalisation purposes)
+			int matchCounter = 0;
+			int matchCounterLimit = 20;
+			int matchCounterRandomized = 0;
+
+			// Do we want to reduce search (when getting nicknames from txt file)
+			bool reduceSearch = false;
+
 			// Gather data.
 
 			using (StreamWriter writer = new StreamWriter(DataPath, true))
 			{
 				for (int i = 0; i < accountsAmount; i++)
 				{
+					reduceSearch = false;
+
 					// Randomize nickname.
 					if (currentName == "")
 					{
 						currentName = GetRandomNickname();
+
+						// Optimalisation
+						reduceSearch = true;
+						matchCounter = 0;
+						matchCounterRandomized = _rng.Next(1, matchCounterLimit + 1);
 					}
 
 					// Find summoner.
@@ -179,6 +194,12 @@ namespace AramAnalyzer.Code.Data.DataResearch
 							// Get random name for next outer loop iteration;
 							var randomName = match.ParticipantIdentities[_rng.Next(0, 10)].Player.SummonerName;
 							currentName = randomName;
+
+							if ((reduceSearch == true) && (++matchCounter == matchCounterRandomized))
+							{
+								reduceSearch = false;
+								break;
+							}
 						}
 					}
 					else

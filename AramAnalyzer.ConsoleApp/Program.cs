@@ -9,7 +9,7 @@
 			// Gather data.
 			// 50 games/minute -> 3000/hour -> 72000/day -> 504000/week.
 			// About 20-40% of gathered games tend to be repeated.
-			Code.Data.DataResearch.Research.GatherData(RiotSharp.Misc.Region.Eune, 36000);
+			Code.Data.DataResearch.Research.GatherData(RiotSharp.Misc.Region.Eune, 3000);
 
 			// Generate data report.
 			Code.Data.DataResearch.Research.GetChampionGroupsWinrates();
