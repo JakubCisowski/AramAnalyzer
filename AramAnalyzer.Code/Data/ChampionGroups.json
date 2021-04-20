@@ -1,34 +1,13 @@
 {
-	"winrates":
-	{
-		"AdAssassin": [],
-		"ADC": [],
-		"BurstMage": [],
-		"Bruiser": [],
-		"ControlMage": [],
-		"Poke": [],
-		"Engage": [],
-		"Support": [],
-		"Tank": [],
-		"Waveclear": []
-	},
-	"groups":
-	{
-		"ADC": ["Aphelios","Caitlyn","Draven", "Jhin", "Jinx", "KaiSa", "Kalista","Kayle","Kindred","KogMaw","Lucian","MissFortune","Quinn","Samira","Senna","Sivir","Tristana","Twitch","Vayne","Xayah"],
-
-		"Assassin": ["Akali","Diana","Ekko","Evelynn", "Fizz","Kassadin","Katarina","KhaZix","MasterYi","Pyke","Qiyana","Shaco","Sylas","Talon","Viego","Zed"],
-	
-		"BattleCaster": ["Anivia","AurelionSol","Azir","Cassiopeia","Fiddlesticks","Karthus","Malzahar","Morgana","Rumble","Ryze","Swain","Viktor","Vladimir"],
-		"BurstCaster": ["Ahri","Annie","Brand","Elise","Gangplank","Gragas","Graves","Kennen","LeBlanc","Lissandra","Malphite","Neeko","Orianna","Syndra","Taliyah","Teemo","Veigar"],
-		"PokeCaster": ["Ashe","Corki","Ezreal","Heimerdinger","Jayce","Karma","Lillia","Lux","Maokai","Nidalee", "Shyvana","TwistedFate","Varus","VelKoz","Xerath", "Ziggs","Zilean","Zoe","Zyra"],
-	
-		"BruiserDiver": ["Aatrox","Camille","Fiora","Gnar","Hecarim","Irelia","JarvanIV","Jax","Kayn","Kled","LeeSin","Nocturne","Pantheon","Reksai","Rengar","Riven","Sett","Tryndamere","Vi","Volibear","Warwick","Wukong","XinZhao","Yasuo","Yone"],
-		"BruiserJuggernaut": ["Darius","DrMundo","Garen","Illaoi","Mordekaiser","Nasus","Olaf","Renekton","Trundle","Udyr","Urgot","Yorick"],
-	
-		"ProtectorTank": ["Braum","ChoGath","Galio","Poppy","Shen","TahmKench","Taric"],	
-		"EngageTank": ["Alistar","Amumu","Leona","Nautilus","Nunu","Ornn","Rammus","Rell", "Sejuani","Sion","Skarner","Zac"],
-		
-		"Catcher": ["Bard","Blitzcrank","Rakan","Singed","Thresh"],
-		"Healer": ["Ivern","Janna","Karma","Lulu", "Nami", "Seraphine", "Sona", "Soraka","Yuumi"]
-	}
+	"ADC": [-207,183,39,-495,-769,-1108],
+	"Assassin": [151,-123,-508,-976,-1306,-2058],
+	"BattleCaster": [-41,92,-13,-306,-474,-673],
+	"BurstCaster": [-97,95,144,82,-63,-385],
+	"PokeCaster": [-98,38,160,226,267,358],
+	"BruiserDiver": [108,-42,-367,-833,-1071,-1385],
+	"BruiserJuggernaut": [19,-39,-237,-533,-764,-1011],
+	"ProtectorTank": [7,-48,-507,-697,-954,-1211],
+	"EngageTank": [-54,186,134,-407,-622,-918],
+	"Catcher": [24,-111,-485,-700,-954,-1209],
+	"Healer": [-72,213,40,-480,-769,-1115]
 }

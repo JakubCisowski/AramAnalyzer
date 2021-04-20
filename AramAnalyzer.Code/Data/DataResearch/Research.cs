@@ -221,7 +221,7 @@ namespace AramAnalyzer.Code.Data.DataResearch
 
 			// Remove duplicate games from research data.
 			string[] lines = File.ReadAllLines(DataPath);
-			File.WriteAllLines(DataPath, lines.Distinct().Where(x => x.Count(y => y == ',') <= 10).ToArray());
+			File.WriteAllLines(DataPath, lines.Distinct().Where(x => x.Count(y => y == ',') == 10).ToArray());
 
 			if (gamesAmount - File.ReadLines(DataPath).Count() + 1 != 1)
 			{
