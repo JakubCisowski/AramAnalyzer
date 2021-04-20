@@ -141,7 +141,7 @@ namespace AramAnalyzer.Code.Data.DataResearch
 					catch (Exception)
 					{
 						Console.ForegroundColor = ConsoleColor.Red;
-						Console.WriteLine($"There is no summoner named '{currentName}' on {researchRegion.ToString()} server!\n");
+						Console.WriteLine($"There is no summoner named '{currentName}' on {researchRegion.ToString()} server!");
 						Console.ResetColor();
 
 						// Continue (this will randomize nickname once again).
