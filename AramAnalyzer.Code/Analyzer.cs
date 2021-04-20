@@ -9,10 +9,10 @@ namespace AramAnalyzer.Code
 		public static Dictionary<string, double> BlueTeamChampions { get; set; }
 		public static Dictionary<string, double> RedTeamChampions { get; set; }
 
-		public static int BlueChampionPoints { get; set;}
-		public static int RedChampionPoints { get; set;}
-		public static int BlueTeamcompPoints { get; set;}
-		public static int RedTeamcompPoints { get; set;}
+		public static int BlueChampionPoints { get; set; }
+		public static int RedChampionPoints { get; set; }
+		public static int BlueTeamcompPoints { get; set; }
+		public static int RedTeamcompPoints { get; set; }
 
 		static Analyzer()
 		{
@@ -85,7 +85,6 @@ namespace AramAnalyzer.Code
 					{
 						// Champion is buffed (only damage received).
 						Console.ForegroundColor = ConsoleColor.Green;
-
 					}
 					else
 					{
@@ -95,7 +94,6 @@ namespace AramAnalyzer.Code
 
 					Console.WriteLine(championBuffs);
 					Console.ResetColor();
-
 
 					// Add champion with winrate to BlueTeam dictionary.
 					BlueTeamChampions.Add(championName, championWinrate);
@@ -107,7 +105,6 @@ namespace AramAnalyzer.Code
 			Console.WriteLine();
 
 			BlueChampionPoints = (int)(Math.Round(((Math.Round(BlueTeamChampions.Values.Average(), 1) - 50) * 100)));
-
 
 			// RED TEAM
 
@@ -161,7 +158,6 @@ namespace AramAnalyzer.Code
 					{
 						// Champion is buffed (only damage received).
 						Console.ForegroundColor = ConsoleColor.Green;
-
 					}
 					else
 					{
@@ -204,18 +200,25 @@ namespace AramAnalyzer.Code
 
 				Console.Write($"{championGroupMembers.Count()}x  {Data.DataResearch.Research.ChampionGroups[i].Item1.GroupName} {(Data.DataResearch.Research.ChampionGroups[i].Item1.GroupName.Length > 10 ? "\t\t\t" : "\t\t\t\t")}");
 				Console.ForegroundColor = points > 0 ? ConsoleColor.Green : ConsoleColor.Red;
-				Console.WriteLine($"{points} points");
+				if (points > 0)
+				{
+					Console.ForegroundColor = ConsoleColor.Green;
+					Console.WriteLine($"+{points}");
+				}
+				else
+				{
+					Console.ForegroundColor = ConsoleColor.Red;
+					Console.WriteLine($"{points}");
+				}
 				Console.ResetColor();
 
 				BlueTeamcompPoints += points;
 			}
 
-
 			Console.BackgroundColor = ConsoleColor.Blue;
 			Console.WriteLine($" TOTAL TEAMCOMP POINTS: \t\t{BlueTeamcompPoints}");
 			Console.ResetColor();
 			Console.WriteLine();
-
 
 			// RED TEAM
 
@@ -229,18 +232,25 @@ namespace AramAnalyzer.Code
 				var points = Data.DataResearch.Research.ChampionGroups[i].Item1.Points[championGroupMembers.Count()];
 
 				Console.Write($"{championGroupMembers.Count()}x  {Data.DataResearch.Research.ChampionGroups[i].Item1.GroupName} {(Data.DataResearch.Research.ChampionGroups[i].Item1.GroupName.Length > 10 ? "\t\t\t" : "\t\t\t\t")}");
-				Console.ForegroundColor = points > 0 ? ConsoleColor.Green : ConsoleColor.Red;
-				Console.WriteLine($"{points} points");
+				if (points > 0)
+				{
+					Console.ForegroundColor = ConsoleColor.Green;
+					Console.WriteLine($"+{points}");
+				}
+				else
+				{
+					Console.ForegroundColor = ConsoleColor.Red;
+					Console.WriteLine($"{points}");
+				}
 				Console.ResetColor();
 
 				RedTeamcompPoints += points;
 			}
 
-
 			Console.BackgroundColor = ConsoleColor.Red;
 			Console.WriteLine($" TOTAL TEAMCOMP POINTS: \t\t{RedTeamcompPoints}");
 			Console.ResetColor();
-			
+
 			Console.WriteLine("------------------------------------------------------------------------------------------------");
 			Console.WriteLine();
 		}
@@ -281,7 +291,7 @@ namespace AramAnalyzer.Code
 
 			int difference = BlueChampionPoints - RedChampionPoints;
 
-			if(difference > 0)
+			if (difference > 0)
 			{
 				Console.BackgroundColor = ConsoleColor.Blue;
 				Console.Write($"BLUE");
@@ -289,7 +299,7 @@ namespace AramAnalyzer.Code
 
 				Console.Write($" team champions are better by {difference} points. \n");
 			}
-			else if(difference < 0)
+			else if (difference < 0)
 			{
 				Console.BackgroundColor = ConsoleColor.Red;
 				Console.Write($"RED");
@@ -307,8 +317,8 @@ namespace AramAnalyzer.Code
 			Console.Write("Teamcomp -> \t\t\t");
 
 			difference = BlueTeamcompPoints - RedTeamcompPoints;
-			
-			if(difference > 0)
+
+			if (difference > 0)
 			{
 				Console.BackgroundColor = ConsoleColor.Blue;
 				Console.Write($"BLUE");
@@ -316,7 +326,7 @@ namespace AramAnalyzer.Code
 
 				Console.Write($" teamcomp is better by {difference} points. \n");
 			}
-			else if(difference < 0)
+			else if (difference < 0)
 			{
 				Console.BackgroundColor = ConsoleColor.Red;
 				Console.Write($"RED");
