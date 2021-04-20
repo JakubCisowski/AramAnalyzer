@@ -46,28 +46,37 @@ namespace AramAnalyzer.Code.Data.DataResearch
 			var path = Path.Combine(Environment.CurrentDirectory, @"Data\DataResearch\", "ChampionGroupsResearch.json");
 			var parsedObject = JObject.Parse(File.ReadAllText(path));
 
-			LoadChampions(parsedObject, "ADC");
-			LoadChampions(parsedObject, "Assassin");
-			LoadChampions(parsedObject, "BattleCaster");
-			LoadChampions(parsedObject, "BurstCaster");
-			LoadChampions(parsedObject, "PokeCaster");
-			LoadChampions(parsedObject, "BruiserDiver");
-			LoadChampions(parsedObject, "BruiserJuggernaut");
-			LoadChampions(parsedObject, "ProtectorTank");
-			LoadChampions(parsedObject, "EngageTank");
-			LoadChampions(parsedObject, "Catcher");
-			LoadChampions(parsedObject, "Healer");
+			var pointsPath = Path.Combine(Environment.CurrentDirectory, @"Data\", "ChampionGroups.json");
+			var pointsParsedObject = JObject.Parse(File.ReadAllText(pointsPath));
+
+			LoadChampions(parsedObject, pointsParsedObject, "ADC");
+			LoadChampions(parsedObject, pointsParsedObject, "Assassin");
+			LoadChampions(parsedObject, pointsParsedObject, "BattleCaster");
+			LoadChampions(parsedObject, pointsParsedObject, "BurstCaster");
+			LoadChampions(parsedObject, pointsParsedObject, "PokeCaster");
+			LoadChampions(parsedObject, pointsParsedObject, "BruiserDiver");
+			LoadChampions(parsedObject, pointsParsedObject, "BruiserJuggernaut");
+			LoadChampions(parsedObject, pointsParsedObject, "ProtectorTank");
+			LoadChampions(parsedObject, pointsParsedObject, "EngageTank");
+			LoadChampions(parsedObject, pointsParsedObject, "Catcher");
+			LoadChampions(parsedObject, pointsParsedObject, "Healer");
 		}
 
 		// Load single champion group to static list.
-		public static void LoadChampions(JObject data, string championGroupName)
+		public static void LoadChampions(JObject data, JObject pointsData, string championGroupName)
 		{
 			var championGroupArray = (JArray)data[championGroupName];
+			var pointsArray = (JArray)pointsData[championGroupName];
 			var championGroup = new ChampionGroup(championGroupName);
 
 			for (var i = 0; i < championGroupArray.Count; i++)
 			{
 				championGroup.ChampionNames.Add(championGroupArray[i].ToString());
+			}
+
+			for (int i = 0; i < pointsArray.Count; i++)
+			{
+				championGroup.Points.Add(int.Parse(pointsArray[i].ToString()));
 			}
 
 			var winLossPairs = new List<(int Wins, int Losses)>()

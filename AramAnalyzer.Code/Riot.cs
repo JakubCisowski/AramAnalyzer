@@ -24,6 +24,8 @@ namespace AramAnalyzer.Code
 			}
 		}
 
+		public static bool IsPlayerBlueTeam{ get; set;}
+
 		static Riot()
 		{
 			// Get API key from resources.
@@ -88,6 +90,9 @@ namespace AramAnalyzer.Code
 				Console.ResetColor();
 				return null;
 			}
+
+			// Check if the given player is on the Blue or Red team. (100 - blue)
+			IsPlayerBlueTeam = game.Participants.FirstOrDefault(x => x.SummonerId == summonerId).TeamId == 100;
 
 			// Everything is OK, save the game for future analysis.
 			currentGame = game;

@@ -49,7 +49,7 @@ namespace AramAnalyzer.Code
 			string damageReceived = tdWithChampionName.NextSibling.NextSibling.NextSibling.NextSibling.InnerHtml;
 
 			// Return formatted value
-			string buffs = $"\t\t{damageDealt}\t\t{damageReceived}";
+			string buffs = $"\t\t{damageDealt}\t\t{damageReceived}\t";
 			return buffs;
 		}
 	}
