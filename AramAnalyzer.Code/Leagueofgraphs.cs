@@ -7,20 +7,9 @@ namespace AramAnalyzer.Code
 {
 	public static class Leagueofgraphs
 	{
-		private static string _URL;
+		public static bool PlatinumWinrates { get; set;}
 
-		public static string URL
-		{
-			get
-			{
-				return _URL;
-			}
-
-			set
-			{
-				_URL = value;
-			}
-		}
+		public static string URL { get; set;}
 
 		public static double GetWinrate(string championName)
 		{
@@ -28,7 +17,16 @@ namespace AramAnalyzer.Code
 			string championNameFixed = Regex.Replace(championName, "[^a-zA-Z]", "").ToLower();
 
 			// Set stats page URL.
-			URL = $@"https://www.leagueofgraphs.com/champions/builds/{championNameFixed}/iron/aram";
+			if (PlatinumWinrates)
+			{
+				// Plat+ winrates.
+				URL = $@"https://www.leagueofgraphs.com/champions/builds/{championNameFixed}/aram";
+			}
+			else
+			{
+				// Iron+ winrates.
+				URL = $@"https://www.leagueofgraphs.com/champions/builds/{championNameFixed}/iron/aram";
+			}
 
 			// Get this champion winrate
 			var web = new HtmlWeb();
