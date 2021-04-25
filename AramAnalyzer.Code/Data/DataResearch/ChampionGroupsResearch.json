@@ -7,7 +7,7 @@
 	"BurstCaster": [ "Ahri", "Annie", "Brand", "Elise", "Gangplank", "Gragas", "Graves", "Kennen", "Leblanc", "Lissandra", "Malphite", "Neeko", "Orianna", "Syndra", "Taliyah", "Teemo", "Veigar" ],
 	"PokeCaster": [ "Ashe", "Corki", "Ezreal", "Heimerdinger", "Jayce", "Karma", "Lillia", "Lux", "Maokai", "Nidalee", "Shyvana", "TwistedFate", "Varus", "Velkoz", "Xerath", "Ziggs", "Zilean", "Zoe", "Zyra" ],
 
-	"BruiserDiver": [ "Aatrox", "Camille", "Fiora", "Gnar", "Hecarim", "Irelia", "JarvanIV", "Jax", "Kayn", "Kled", "LeeSin", "Nocturne", "Pantheon", "RekSai", "Rengar", "Riven", "Sett", "Tryndamere", "Vi", "Volibear", "Warwick", "MonkeyKing", "XinZhao", "Yasuo", "Yone" ],
+	"BruiserDiver": [ "Aatrox", "Camille", "Fiora", "Gnar", "Gwen", "Hecarim", "Irelia", "JarvanIV", "Jax", "Kayn", "Kled", "LeeSin", "Nocturne", "Pantheon", "RekSai", "Rengar", "Riven", "Sett", "Tryndamere", "Vi", "Volibear", "Warwick", "MonkeyKing", "XinZhao", "Yasuo", "Yone" ],
 	"BruiserJuggernaut": [ "Darius", "DrMundo", "Garen", "Illaoi", "Mordekaiser", "Nasus", "Olaf", "Renekton", "Trundle", "Udyr", "Urgot", "Yorick" ],
 
 	"ProtectorTank": [ "Braum", "Chogath", "Galio", "Poppy", "Shen", "TahmKench", "Taric" ],
