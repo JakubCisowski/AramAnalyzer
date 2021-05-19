@@ -52,5 +52,33 @@ namespace AramAnalyzer.Code
 			string buffs = $"\t\t{damageDealt}\t\t{damageReceived}\t";
 			return buffs;
 		}
+
+		public static (string, string) GetChampionBuffsPair(string championName)
+		{
+			// Check full name (nunu -> nunu & willump).
+			championName = Ddragon.GetChampionFullName(championName);
+
+			// When searching champion in table, replace:
+			// & with &amp;
+			// ' with &#39;
+			championName = championName.Replace("&", "&amp;");
+			championName = championName.Replace("\'", "&#39;");
+			// in full champion name
+
+			// Select <td> element with champion name.
+			var tdWithChampionName = AramChangesTable.SelectNodes($"//td[@data-sort-value ='{championName}']")?.FirstOrDefault();
+
+			// If champion wasn't found in table, it means it hasn't been nerfed/buffed.
+			if (tdWithChampionName is null)
+			{
+				return ("", "");
+			}
+
+			// Next siblings of this element are buffs/nerfs.
+			string damageDealt = tdWithChampionName.NextSibling.NextSibling.InnerHtml;
+			string damageReceived = tdWithChampionName.NextSibling.NextSibling.NextSibling.NextSibling.InnerHtml;
+
+			return (damageDealt, damageReceived);
+		}
 	}
 }

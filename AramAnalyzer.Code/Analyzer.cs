@@ -6,6 +6,8 @@ namespace AramAnalyzer.Code
 {
 	public static class Analyzer
 	{
+		public static MatchReport Report { get; set; }
+
 		public static Dictionary<string, double> BlueTeamChampions { get; set; }
 		public static Dictionary<string, double> RedTeamChampions { get; set; }
 
@@ -22,9 +24,146 @@ namespace AramAnalyzer.Code
 
 		public static void Analyze()
 		{
+			Report = new MatchReport();
+
 			AnalyzeWinrates();
 			AnalyzeTeamcomps();
 			DisplaySummary();
+		}
+
+		public static MatchReport GetMatchReport(string name, string region, bool platinumWinrates)
+		{
+			// Select which winrates to display.
+			if (platinumWinrates)
+			{
+				Code.Leagueofgraphs.PlatinumWinrates = true;
+			}
+			else
+			{
+				Code.Leagueofgraphs.PlatinumWinrates = false;
+			}
+
+			try
+			{
+				_ = Code.Riot.GetCurrentGame(name, region);
+			}
+			catch (Exception)
+			{
+				throw;
+			}
+
+			Report = new MatchReport();
+
+			var BlueTeamChampions = new List<(string Name, double Winrate, string DamageDealt, string DamageReceived)>();
+			var RedTeamChampions = new List<(string Name, double Winrate, string DamageDealt, string DamageReceived)>();
+			double BlueAverageWinrate;
+			double RedAverageWinrate;
+			double BlueTotalChampionPoints;
+			double RedTotalChampionPoints;
+
+			var BlueTeamTeamcomp = new List<(string Amount, string GroupName, string Points)>();
+			var RedTeamTeamcomp = new List<(string Amount, string GroupName, string Points)>();
+			string PlayerTeam;
+			double BlueTotalTeamcompPoints;
+			double RedTotalTeamcompPoints;
+
+			#region CHAMPIONS
+
+			// BLUE TEAM
+			foreach (var participant in Riot.CurrentGame.Participants)
+			{
+				if (participant.TeamId == 100)
+				{
+					string championName = Ddragon.GetChampionName(participant.ChampionId);
+					double championWinrate = Leagueofgraphs.GetWinrate(championName);
+
+					(string, string) championBuffs = Wiki.GetChampionBuffsPair(championName);
+
+					string damageDealt = championBuffs.Item1;
+					string damageReceived = championBuffs.Item2;
+
+					BlueTeamChampions.Add((championName, championWinrate, damageDealt, damageReceived));
+				}
+			}
+
+			BlueTotalChampionPoints = (Math.Round(((Math.Round(BlueTeamChampions.Select(x => x.Winrate).Average(), 1) - 50) * 100)));
+			BlueAverageWinrate = Math.Round(BlueTeamChampions.Select(x => x.Winrate).Average(), 1);
+
+			// RED TEAM
+			foreach (var participant in Riot.CurrentGame.Participants)
+			{
+				if (participant.TeamId == 200)
+				{
+					string championName = Ddragon.GetChampionName(participant.ChampionId);
+					double championWinrate = Leagueofgraphs.GetWinrate(championName);
+
+					(string, string) championBuffs = Wiki.GetChampionBuffsPair(championName);
+
+					string damageDealt = championBuffs.Item1;
+					string damageReceived = championBuffs.Item2;
+
+					RedTeamChampions.Add((championName, championWinrate, damageDealt, damageReceived));
+				}
+			}
+			RedTotalChampionPoints = (Math.Round(((Math.Round(RedTeamChampions.Select(x => x.Winrate).Average(), 1) - 50) * 100)));
+			RedAverageWinrate = Math.Round(RedTeamChampions.Select(x => x.Winrate).Average(), 1);
+
+			#endregion CHAMPIONS
+
+			#region TEAMCOMPS
+
+			// Load champion groups.
+			Data.DataResearch.Research.LoadChampionGroups();
+
+			// BLUE TEAM
+			for (int i = 0; i < Data.DataResearch.Research.ChampionGroups.Count; i++)
+			{
+				var championGroupMembers = BlueTeamChampions.Select(x => x.Name).ToList().Intersect(Data.DataResearch.Research.ChampionGroups[i].Item1.ChampionNames);
+				var points = Data.DataResearch.Research.ChampionGroups[i].Item1.Points[championGroupMembers.Count()];
+
+				BlueTeamTeamcomp.Add((championGroupMembers.Count().ToString(), Data.DataResearch.Research.ChampionGroups[i].Item1.GroupName, points.ToString()));
+
+				BlueTotalTeamcompPoints += points;
+			}
+
+			// RED TEAM
+			for (int i = 0; i < Data.DataResearch.Research.ChampionGroups.Count; i++)
+			{
+				var championGroupMembers = RedTeamChampions.Select(x => x.Name).ToList().Intersect(Data.DataResearch.Research.ChampionGroups[i].Item1.ChampionNames);
+				var points = Data.DataResearch.Research.ChampionGroups[i].Item1.Points[championGroupMembers.Count()];
+
+				RedTeamTeamcomp.Add((championGroupMembers.Count().ToString(), Data.DataResearch.Research.ChampionGroups[i].Item1.GroupName, points.ToString()));
+
+				RedTotalTeamcompPoints += points;
+			}
+
+			#endregion TEAMCOMPS
+
+			#region SUMMARY
+
+			if (Riot.IsPlayerBlueTeam)
+			{
+				PlayerTeam = "BLUE";
+			}
+			else
+			{
+				PlayerTeam = "RED";
+			}
+
+			#endregion SUMMARY
+
+			Report.BlueTeamChampions = BlueTeamChampions;
+			Report.RedTeamChampions = RedTeamChampions;
+			Report.BlueTeamTeamcomp = BlueTeamTeamcomp;
+			Report.RedTeamTeamcomp = RedTeamTeamcomp;
+			Report.BlueAverageWinrate = BlueAverageWinrate;
+			Report.RedAverageWinrate = RedAverageWinrate;
+			Report.BlueTotalTeamcompPoints = BlueTotalTeamcompPoints;
+			Report.RedTotalTeamcompPoints = RedTotalTeamcompPoints;
+			Report.BlueTotalChampionPoints = BlueTotalChampionPoints;
+			Report.RedTotalChampionPoints = RedTotalChampionPoints;
+
+			return Report;
 		}
 
 		public static void AnalyzeWinrates()

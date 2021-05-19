@@ -41,7 +41,7 @@ namespace AramAnalyzer
 				platinumWinrates = Console.ReadLine();
 
 				// Select which winrates to display.
-				if(platinumWinrates == "y")
+				if (platinumWinrates == "y")
 				{
 					Code.Leagueofgraphs.PlatinumWinrates = true;
 				}
