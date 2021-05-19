@@ -1,11 +1,7 @@
 ﻿using AramAnalyzer.Website.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AramAnalyzer.Website.Controllers
 {
@@ -25,6 +21,13 @@ namespace AramAnalyzer.Website.Controllers
 
 		public IActionResult Privacy()
 		{
+			return View();
+		}
+
+		public IActionResult Analysis(string name, string region)
+		{
+			ViewData["Name"] = name;
+			ViewData["Region"] = region;
 			return View();
 		}
 
