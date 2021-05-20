@@ -45,7 +45,7 @@ namespace AramAnalyzer.Code
 
 			try
 			{
-				_ = Code.Riot.GetCurrentGame(name, region);
+				_ = Code.Riot.GetCurrentGameWebsite(name, region);
 			}
 			catch (Exception)
 			{
@@ -64,8 +64,8 @@ namespace AramAnalyzer.Code
 			var BlueTeamTeamcomp = new List<(string Amount, string GroupName, string Points)>();
 			var RedTeamTeamcomp = new List<(string Amount, string GroupName, string Points)>();
 			string PlayerTeam;
-			double BlueTotalTeamcompPoints;
-			double RedTotalTeamcompPoints;
+			double BlueTotalTeamcompPoints = 0;
+			double RedTotalTeamcompPoints = 0;
 
 			#region CHAMPIONS
 
@@ -162,6 +162,7 @@ namespace AramAnalyzer.Code
 			Report.RedTotalTeamcompPoints = RedTotalTeamcompPoints;
 			Report.BlueTotalChampionPoints = BlueTotalChampionPoints;
 			Report.RedTotalChampionPoints = RedTotalChampionPoints;
+			Report.PlayerTeam = PlayerTeam;
 
 			return Report;
 		}

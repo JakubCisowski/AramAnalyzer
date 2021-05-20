@@ -1,0 +1,18 @@
+{
+	"ADC": [ "Aphelios", "Caitlyn", "Draven", "Jhin", "Jinx", "Kaisa", "Kalista", "Kayle", "Kindred", "KogMaw", "Lucian", "MissFortune", "Quinn", "Samira", "Senna", "Sivir", "Tristana", "Twitch", "Vayne", "Xayah" ],
+
+	"Assassin": [ "Akali", "Diana", "Ekko", "Evelynn", "Fizz", "Kassadin", "Katarina", "Khazix", "MasterYi", "Pyke", "Qiyana", "Shaco", "Sylas", "Talon", "Viego", "Zed" ],
+
+	"BattleCaster": [ "Anivia", "AurelionSol", "Azir", "Cassiopeia", "Fiddlesticks", "Karthus", "Malzahar", "Morgana", "Rumble", "Ryze", "Swain", "Viktor", "Vladimir" ],
+	"BurstCaster": [ "Ahri", "Annie", "Brand", "Elise", "Gangplank", "Gragas", "Graves", "Kennen", "Leblanc", "Lissandra", "Malphite", "Neeko", "Orianna", "Syndra", "Taliyah", "Teemo", "Veigar" ],
+	"PokeCaster": [ "Ashe", "Corki", "Ezreal", "Heimerdinger", "Jayce", "Karma", "Lillia", "Lux", "Maokai", "Nidalee", "Shyvana", "TwistedFate", "Varus", "Velkoz", "Xerath", "Ziggs", "Zilean", "Zoe", "Zyra" ],
+
+	"BruiserDiver": [ "Aatrox", "Camille", "Fiora", "Gnar", "Gwen", "Hecarim", "Irelia", "JarvanIV", "Jax", "Kayn", "Kled", "LeeSin", "Nocturne", "Pantheon", "RekSai", "Rengar", "Riven", "Sett", "Tryndamere", "Vi", "Volibear", "Warwick", "MonkeyKing", "XinZhao", "Yasuo", "Yone" ],
+	"BruiserJuggernaut": [ "Darius", "DrMundo", "Garen", "Illaoi", "Mordekaiser", "Nasus", "Olaf", "Renekton", "Trundle", "Udyr", "Urgot", "Yorick" ],
+
+	"ProtectorTank": [ "Braum", "Chogath", "Galio", "Poppy", "Shen", "TahmKench", "Taric" ],
+	"EngageTank": [ "Alistar", "Amumu", "Leona", "Nautilus", "Nunu", "Ornn", "Rammus", "Rell", "Sejuani", "Sion", "Skarner", "Zac" ],
+
+	"Catcher": [ "Bard", "Blitzcrank", "Rakan", "Singed", "Thresh" ],
+	"Healer": [ "Ivern", "Janna", "Karma", "Lulu", "Nami", "Seraphine", "Sona", "Soraka", "Yuumi" ]
+}

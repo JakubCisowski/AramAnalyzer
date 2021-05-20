@@ -1,6 +1,7 @@
 ﻿using AramAnalyzer.Website.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Diagnostics;
 
 namespace AramAnalyzer.Website.Controllers
@@ -24,11 +25,26 @@ namespace AramAnalyzer.Website.Controllers
 			return View();
 		}
 
-		public IActionResult Analysis(string name, string region)
+		public IActionResult Analysis(string name, string region, string platinumWinrates)
 		{
+			bool platWinrates = platinumWinrates == "on" ? true : false;
+			AramAnalyzer.Code.MatchReport model;
+
+			try
+			{
+				model = AramAnalyzer.Code.Analyzer.GetMatchReport(name, region, platWinrates);
+			}
+			catch (Exception e)
+			{
+				ViewData["ErrorMessage"] = e.Message;
+
+				return View("SearchError");
+			}
+
 			ViewData["Name"] = name;
 			ViewData["Region"] = region;
-			return View();
+
+			return View(model);
 		}
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

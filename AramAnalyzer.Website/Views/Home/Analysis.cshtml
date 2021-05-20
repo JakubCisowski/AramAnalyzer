@@ -1,4 +1,6 @@
-﻿@{
+﻿@model AramAnalyzer.Code.MatchReport
+
+@{
 	ViewData["Title"] = "Analysis";
 }
 
@@ -7,4 +9,5 @@
 	<p>Analyze your ARAM games.</p>
 	<p>@ViewData["Name"]</p>
 	<p>@ViewData["Region"]</p>
+	<p>@Model.BlueAverageWinrate</p>
 </div>

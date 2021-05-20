@@ -9,11 +9,25 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Data\ChampionGroups.json" />
+    <Content Remove="Data\DataResearch\ChampionGroupsResearch.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AramAnalyzer.Code\AramAnalyzer.Code.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Data\ChampionGroups.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\DataResearch\ChampionGroupsResearch.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
