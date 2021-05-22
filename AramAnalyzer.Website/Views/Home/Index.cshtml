@@ -3,14 +3,21 @@
 }
 
 <div class="text-center">
-	<h1 class="display-4">Aram Analyzer</h1>
-	<p>Analyze your ARAM games.</p>
+	@*<h1 class="display-4">Aram Analyzer</h1>
+		<p>Analyze your ARAM games.</p>*@
 
 	<div id="summary_area" class="container">
 		<div class="text-center">
 			<h3 class="display-4">Summary</h3>
 		</div>
+		<div id="summary_info" class="container" style="border-style:solid; border-color:black; border-width:1px; display: inline-block; width:500px; margin: 0 0 30px 0">
+			<p>PlayerName is on Blue team</p>
+			<p>Blue team's champions are better by 500 points </p>
+			<p>Red team's champions is better by 500 points</p>
+		</div>
 	</div>
+
+	<hr class="solid" style="border-top: 2px solid #bbb;">
 
 	<div id="analysis_area" class="container">
 
@@ -18,448 +25,568 @@
 			<h3 class="display-4">Champions</h3>
 		</div>
 
-		<div id="blue_champions" class="container" style="border-style:solid; border-color:black; border-width:1px; display: inline-block; width:500px; margin: 0 10px 0 10px">
-			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px">
+		<div id="blue_champions" class="container" style="border-style:solid; border-color:black; border-width:1px; display: inline-block; width:500px; margin: 0 10px 30px 10px">
+			<div class="row" style="height:70px">
+				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:70px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Champion name</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:70px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Winrate</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:70px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Damage dealt</p>
 				</div>
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:70px;" ">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Damage received</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Alistar</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">50.3%</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+5%</p>
 				</div>
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">-12%</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Akali</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">38%</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+200%</p>
 				</div>
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">-500%</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Qiyana</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">70%</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+400%</p>
 				</div>
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">-400%</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Ashe</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">58%</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">-15%</p>
 				</div>
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+30%</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Kha'Zix</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">62%</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+10%</p>
 				</div>
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">-15%</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Average winrate</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">60.2%</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-4 col-md-4" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
 				</div>
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+			</div>
+		</div>
+
+		<div id="red_champions" class="container" style="border-style:solid; border-color:black; border-width:1px; display: inline-block; width:500px; margin: 0 10px 30px 10px">
+			<div class="row" style="height:70px">
+				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:70px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Champion name</p>
+				</div>
+
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:70px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Winrate</p>
+				</div>
+
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:70px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Damage dealt</p>
+				</div>
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:70px;" ">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Damage received</p>
+				</div>
+			</div>
+			<div class="row" style="height:50px">
+				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Alistar</p>
+				</div>
+
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">50.3%</p>
+				</div>
+
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+5%</p>
+				</div>
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">-12%</p>
+				</div>
+			</div>
+			<div class="row" style="height:50px">
+				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Akali</p>
+				</div>
+
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">38%</p>
+				</div>
+
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+200%</p>
+				</div>
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">-500%</p>
+				</div>
+			</div>
+			<div class="row" style="height:50px">
+				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Qiyana</p>
+				</div>
+
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">70%</p>
+				</div>
+
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+400%</p>
+				</div>
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">-400%</p>
+				</div>
+			</div>
+			<div class="row" style="height:50px">
+				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Ashe</p>
+				</div>
+
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">58%</p>
+				</div>
+
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">-15%</p>
+				</div>
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+30%</p>
+				</div>
+			</div>
+			<div class="row" style="height:50px">
+				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Kha'Zix</p>
+				</div>
+
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">62%</p>
+				</div>
+
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+10%</p>
+				</div>
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">-15%</p>
+				</div>
+			</div>
+			<div class="row" style="height:50px">
+				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Average winrate</p>
+				</div>
+
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">60.2%</p>
+				</div>
+
+				<div class="col-lg-4 col-md-4" style="border-style:solid; border-color:black; border-width:1px; position: relative; height:50px;">
 				</div>
 			</div>
 		</div>
 
-		<div id="red_champions" class="container" style="border-style:solid; border-color:black; border-width:1px; display: inline-block; width:500px; margin: 0 10px 0 10px">
-			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-			</div>
-		</div>
+		<hr class="solid" style="border-top: 2px solid #bbb;">
 
 		<div class="text-center">
 			<h4 class="display-4">Teamcomps</h4>
 		</div>
 
 		<div id="blue_teamcomp" class="container" style="border-style:solid; border-color:black; border-width:1px; display: inline-block; width:500px; margin: 0 10px 0 10px">
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+			<div class="row" style="height:70px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:70px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Quantity</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:70px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Teamcomp group name</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:70px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Teamcomp points</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">1x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">ADC</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+130</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">0x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Assassin</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+300</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">2x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Battle Caster</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">-180</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">1x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Poke Caster</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+650</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">0x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Burst Caster</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+100</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">0x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Bruiser Diver</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">-10</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">0x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Bruiser Juggernaut</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">-160</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">0x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Protector Tank</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+300</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">0x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Engage Tank</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+141</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">0x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Catcher</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+150</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">1x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Healer</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+540</p>
 				</div>
 			</div>
 
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-10 col-md-10" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Total teamcompo points</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+103213</p>
 				</div>
 			</div>
 		</div>
 
 		<div id="red_teamcomp" class="container" style="border-style:solid; border-color:black; border-width:1px; display: inline-block; width:500px; margin: 0 10px 0 10px">
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+			<div class="row" style="height:70px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:70px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Quantity</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:70px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Teamcomp group name</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:70px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Teamcomp points</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">1x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">ADC</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+130</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">0x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Assassin</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+300</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">2x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Battle Caster</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">-180</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">1x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Poke Caster</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+650</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">0x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Burst Caster</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+100</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">0x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Bruiser Diver</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">-10</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">0x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Bruiser Juggernaut</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">-160</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">0x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Protector Tank</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+300</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">0x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Engage Tank</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+141</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">0x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Catcher</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+150</p>
 				</div>
 			</div>
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">1x</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Healer</p>
 				</div>
 
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+540</p>
 				</div>
 			</div>
 
 			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-10 col-md-10" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">Total teamcompo points</p>
 				</div>
 
-				<div class="col-lg-8 col-md-8" style="border-style:solid; border-color:black; border-width:1px">
-				</div>
-
-				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px">
+				<div class="col-lg-2 col-md-2" style="border-style:solid; border-color:black; border-width:1px; height:50px; position:relative;">
+					<p style="margin:0px; position:absolute; top:50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center">+103213</p>
 				</div>
 			</div>
 		</div>
