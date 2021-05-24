@@ -96,6 +96,13 @@ body {
 	position: relative;
 }
 
+.gridCellHighlightedGray {
+	border-style: double;
+	border-color: #9c9c9c;
+	background: #e6e6e6;
+	position: relative;
+}
+
 .gridParagraph {
 	margin: 0px;
 	position: absolute;
