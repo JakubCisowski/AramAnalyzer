@@ -82,7 +82,7 @@ namespace AramAnalyzer.Code
 					string damageDealt = championBuffs.Item1;
 					string damageReceived = championBuffs.Item2;
 
-					BlueTeamChampions.Add((championName, championWinrate, damageDealt, damageReceived));
+					BlueTeamChampions.Add((Ddragon.GetChampionFullName(championName), championWinrate, damageDealt, damageReceived));
 				}
 			}
 
@@ -102,7 +102,7 @@ namespace AramAnalyzer.Code
 					string damageDealt = championBuffs.Item1;
 					string damageReceived = championBuffs.Item2;
 
-					RedTeamChampions.Add((championName, championWinrate, damageDealt, damageReceived));
+					RedTeamChampions.Add((Ddragon.GetChampionFullName(championName), championWinrate, damageDealt, damageReceived));
 				}
 			}
 			RedTotalChampionPoints = (Math.Round(((Math.Round(RedTeamChampions.Select(x => x.Winrate).Average(), 1) - 50) * 100)));
