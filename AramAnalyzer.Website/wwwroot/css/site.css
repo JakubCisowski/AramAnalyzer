@@ -107,6 +107,10 @@ body {
 }
 
 .boldText {
+	font-weight: 900;
+}
+
+.mediumText {
 	font-weight: bold;
 }
 

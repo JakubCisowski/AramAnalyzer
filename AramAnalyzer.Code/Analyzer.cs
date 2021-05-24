@@ -90,7 +90,7 @@ namespace AramAnalyzer.Code
 					string damageDealt = championBuffs.Item1;
 					string damageReceived = championBuffs.Item2;
 
-					BlueTeamChampions.Add((Ddragon.GetChampionFullName(championName), championWinrate, damageDealt, damageReceived));
+					BlueTeamChampions.Add((championName, championWinrate, damageDealt, damageReceived));
 				}
 			}
 
@@ -110,7 +110,7 @@ namespace AramAnalyzer.Code
 					string damageDealt = championBuffs.Item1;
 					string damageReceived = championBuffs.Item2;
 
-					RedTeamChampions.Add((Ddragon.GetChampionFullName(championName), championWinrate, damageDealt, damageReceived));
+					RedTeamChampions.Add((championName, championWinrate, damageDealt, damageReceived));
 				}
 			}
 			RedTotalChampionPoints = (Math.Round(((Math.Round(RedTeamChampions.Select(x => x.Winrate).Average(), 1) - 50) * 100)));
@@ -159,6 +159,16 @@ namespace AramAnalyzer.Code
 			}
 
 			#endregion SUMMARY
+
+			// Fix champion names.
+			for (int i = 0; i < BlueTeamChampions.Count; i++)
+			{
+				BlueTeamChampions[i] = (Ddragon.GetChampionFullName(BlueTeamChampions[i].Name), BlueTeamChampions[i].Winrate, BlueTeamChampions[i].DamageDealt, BlueTeamChampions[i].DamageReceived);
+			}
+			for (int i = 0; i < RedTeamChampions.Count; i++)
+			{
+				RedTeamChampions[i] = (Ddragon.GetChampionFullName(RedTeamChampions[i].Name), RedTeamChampions[i].Winrate, RedTeamChampions[i].DamageDealt, RedTeamChampions[i].DamageReceived);
+			}
 
 			Report.BlueTeamChampions = BlueTeamChampions;
 			Report.RedTeamChampions = RedTeamChampions;

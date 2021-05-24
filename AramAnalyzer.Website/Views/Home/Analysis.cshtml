@@ -197,17 +197,18 @@
 				</div>
 				@foreach (var (amount, groupName, points) in Model.BlueTeamTeamcomp)
 				{
+					string style = int.Parse(amount) > 0 ? "mediumText" : "";
 					<div class="row" style="height:50px">
 						<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-							<p class="gridParagraph">@(amount)x</p>
+							<p class="gridParagraph @style">@(amount)x</p>
 						</div>
 
 						<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-							<p class="gridParagraph">@groupName</p>
+							<p class="gridParagraph @style">@groupName</p>
 						</div>
 
 						<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-							<p class="gridParagraph">@points</p>
+							<p class="gridParagraph @style">@points</p>
 						</div>
 					</div>
 				}
@@ -239,17 +240,18 @@
 				</div>
 				@foreach (var (amount, groupName, points) in Model.RedTeamTeamcomp)
 				{
+					string style = int.Parse(amount) > 0 ? "mediumText" : "";
 					<div class="row" style="height:50px">
 						<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-							<p class="gridParagraph">@(amount)x</p>
+							<p class="gridParagraph @style">@(amount)x</p>
 						</div>
 
 						<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-							<p class="gridParagraph">@groupName</p>
+							<p class="gridParagraph @style">@groupName</p>
 						</div>
 
 						<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-							<p class="gridParagraph">@points</p>
+							<p class="gridParagraph @style">@points</p>
 						</div>
 					</div>
 				}
