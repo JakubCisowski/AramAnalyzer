@@ -41,9 +41,6 @@ namespace AramAnalyzer.Website.Controllers
 				return View("SearchError");
 			}
 
-			ViewData["Name"] = name;
-			ViewData["Region"] = region;
-
 			return View(model);
 		}
 
