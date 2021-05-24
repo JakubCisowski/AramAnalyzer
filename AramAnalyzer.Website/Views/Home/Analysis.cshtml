@@ -2,264 +2,264 @@
 @model AramAnalyzer.Code.MatchReport
 
 @{
-	ViewData["Title"] = "Analysis";
+	ViewData["Title"] = Model.PlayerName;
 }
 
 <div class="text-center">
 	@*<h1 class="display-4">Aram Analyzer</h1>
-	<p>Analyze your ARAM games.</p>*@
+		<p>Analyze your ARAM games.</p>*@
 
-@if (ViewData["ErrorMessage"] != null)
-{
-	<div class="text-center">
-		<h3 class="display-4">@ViewData["ErrorMessage"]</h3>
-	</div>
-}
-else
-{
+	@if (ViewData["ErrorMessage"] != null)
+	{
+		<div class="text-center">
+			<h3 class="display-4">@ViewData["ErrorMessage"]</h3>
+		</div>
+	}
+	else
+	{
 
-<div id="summary_area" class="container">
-	<div class="text-center">
-		<h3 class="display-4">Summary</h3>
-	</div>
-	<div id="summary_info" class="container" style="display: inline-block; width:500px; margin: 10px 0 30px 0">
-		<p>@Model.PlayerName is on @Model.PlayerTeam team</p>
-
-		@{
-			double championsDifference = 0;
-			double teamcompsDifference = 0;
-		}
-
-		<p>
-			@if (Model.BlueTotalChampionPoints > Model.RedTotalChampionPoints)
-			{
-				@("Blue")
-				championsDifference = Model.BlueTotalChampionPoints - Model.RedTotalChampionPoints;
-			}
-			else
-			{
-				@("Red")
-				championsDifference = Model.RedTotalChampionPoints - Model.BlueTotalChampionPoints;
-			}
-			team's champions are better by @championsDifference points
-		</p>
-
-		<p>
-			@if (Model.BlueTotalTeamcompPoints > Model.RedTotalTeamcompPoints)
-			{
-				@("Blue")
-				teamcompsDifference = Model.BlueTotalTeamcompPoints - Model.RedTotalTeamcompPoints;
-			}
-			else
-			{
-				@("Red")
-				teamcompsDifference = Model.RedTotalTeamcompPoints - Model.BlueTotalTeamcompPoints;
-			}
-			team's teamcomp is better by @teamcompsDifference points
-		</p>
-	</div>
-</div>
-
-<hr class="solid" style="border-top: 2px solid #bbb;">
-
-<div id="analysis_area" class="container">
-
-	<div class="text-center">
-		<h3 class="display-4">Champions</h3>
-	</div>
-
-	<div id="blue_champions" class="container blueBorder" style="display: inline-block; width: 500px; margin: 10px 10px 30px 10px">
-		<div class="row" style="height:70px">
-			<div class="col-lg-6 col-md-6 gridCell" style="height:70px;">
-				<p class="gridParagraph boldText">Champion name</p>
+		<div id="summary_area" class="container">
+			<div class="text-center">
+				<h3 class="display-4">Summary</h3>
 			</div>
+			<div id="summary_info" class="container" style="display: inline-block; width:500px; margin: 10px 0 30px 0">
+				<p>@Model.PlayerName is on @Model.PlayerTeam team</p>
 
-			<div class="col-lg-2 col-md-2 gridCell" style="height:70px;">
-				<p class="gridParagraph boldText">Winrate</p>
-			</div>
+				@{
+					double championsDifference = 0;
+					double teamcompsDifference = 0;
+				}
 
-			<div class="col-lg-2 col-md-2 gridCell" style="height:70px;">
-				<p class="gridParagraph boldText">Damage dealt</p>
-			</div>
-			<div class="col-lg-2 col-md-2 gridCell" style="height:70px;">
-				<p class="gridParagraph boldText">Damage received</p>
+				<p>
+					@if (Model.BlueTotalChampionPoints > Model.RedTotalChampionPoints)
+					{
+						@("Blue")
+						championsDifference = Model.BlueTotalChampionPoints - Model.RedTotalChampionPoints;
+					}
+					else
+					{
+						@("Red")
+						championsDifference = Model.RedTotalChampionPoints - Model.BlueTotalChampionPoints;
+					}
+					team's champions are better by @championsDifference points
+				</p>
+
+				<p>
+					@if (Model.BlueTotalTeamcompPoints > Model.RedTotalTeamcompPoints)
+					{
+						@("Blue")
+						teamcompsDifference = Model.BlueTotalTeamcompPoints - Model.RedTotalTeamcompPoints;
+					}
+					else
+					{
+						@("Red")
+						teamcompsDifference = Model.RedTotalTeamcompPoints - Model.BlueTotalTeamcompPoints;
+					}
+					team's teamcomp is better by @teamcompsDifference points
+				</p>
 			</div>
 		</div>
 
-		@foreach (var (name, winrate, damageDealt, damageReceived) in Model.BlueTeamChampions)
-		{
-			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
-					<p class="gridParagraph">@name</p>
-				</div>
+		<hr class="solid" style="border-top: 2px solid #bbb;">
 
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">@winrate%</p>
-				</div>
+		<div id="analysis_area" class="container">
 
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">@damageDealt</p>
-				</div>
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">@damageReceived</p>
-				</div>
-			</div>
-		}
-
-		<div class="row" style="height:50px">
-			<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
-				<p class="gridParagraph boldText">Average winrate</p>
+			<div class="text-center">
+				<h3 class="display-4">Champions</h3>
 			</div>
 
-			<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-				<p class="gridParagraph boldText">@Model.BlueAverageWinrate%</p>
+			<div id="blue_champions" class="container blueBorder" style="display: inline-block; width: 500px; margin: 10px 10px 30px 10px">
+				<div class="row" style="height:70px">
+					<div class="col-lg-6 col-md-6 gridCell" style="height:70px;">
+						<p class="gridParagraph boldText">Champion name</p>
+					</div>
+
+					<div class="col-lg-2 col-md-2 gridCell" style="height:70px;">
+						<p class="gridParagraph boldText">Winrate</p>
+					</div>
+
+					<div class="col-lg-2 col-md-2 gridCell" style="height:70px;">
+						<p class="gridParagraph boldText">Damage dealt</p>
+					</div>
+					<div class="col-lg-2 col-md-2 gridCell" style="height:70px;">
+						<p class="gridParagraph boldText">Damage received</p>
+					</div>
+				</div>
+
+				@foreach (var (name, winrate, damageDealt, damageReceived) in Model.BlueTeamChampions)
+				{
+					<div class="row" style="height:50px">
+						<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
+							<p class="gridParagraph">@name</p>
+						</div>
+
+						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+							<p class="gridParagraph">@winrate%</p>
+						</div>
+
+						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+							<p class="gridParagraph">@damageDealt</p>
+						</div>
+						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+							<p class="gridParagraph">@damageReceived</p>
+						</div>
+					</div>
+				}
+
+				<div class="row" style="height:50px">
+					<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
+						<p class="gridParagraph boldText">Average winrate</p>
+					</div>
+
+					<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+						<p class="gridParagraph boldText">@Model.BlueAverageWinrate%</p>
+					</div>
+
+					<div class="col-lg-4 col-md-4 gridCell" style="height:50px;">
+					</div>
+				</div>
 			</div>
 
-			<div class="col-lg-4 col-md-4 gridCell" style="height:50px;">
+			<div id="red_champions" class="container redBorder" style="display: inline-block; width:500px; margin: 10px 10px 30px 10px">
+				<div class="row" style="height:70px">
+					<div class="col-lg-6 col-md-6 gridCell" style="height:70px;">
+						<p class="gridParagraph boldText">Champion name</p>
+					</div>
+
+					<div class="col-lg-2 col-md-2 gridCell" style="height:70px;">
+						<p class="gridParagraph boldText">Winrate</p>
+					</div>
+
+					<div class="col-lg-2 col-md-2 gridCell" style="height:70px;">
+						<p class="gridParagraph boldText">Damage dealt</p>
+					</div>
+					<div class="col-lg-2 col-md-2 gridCell" style="height:70px;">
+						<p class="gridParagraph boldText">Damage received</p>
+					</div>
+				</div>
+				@foreach (var (name, winrate, damageDealt, damageReceived) in Model.RedTeamChampions)
+				{
+					<div class="row" style="height:50px">
+						<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
+							<p class="gridParagraph">@name</p>
+						</div>
+
+						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+							<p class="gridParagraph">@winrate%</p>
+						</div>
+
+						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+							<p class="gridParagraph">@damageDealt</p>
+						</div>
+						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+							<p class="gridParagraph">@damageReceived</p>
+						</div>
+					</div>
+				}
+
+				<div class="row" style="height:50px">
+					<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
+						<p class="gridParagraph boldText">Average winrate</p>
+					</div>
+
+					<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+						<p class="gridParagraph boldText">@Model.RedAverageWinrate%</p>
+					</div>
+
+					<div class="col-lg-4 col-md-4 gridCell" style="height:50px;">
+					</div>
+				</div>
+			</div>
+
+			<hr class="solid" style="border-top: 2px solid #bbb;">
+
+			<div class="text-center">
+				<h4 class="display-4">Teamcomps</h4>
+			</div>
+
+			<div id="blue_teamcomp" class="container blueBorder" style="display: inline-block; width:500px; margin: 10px 10px 10px 10px">
+				<div class="row" style="height:70px">
+					<div class="col-lg-2 col-md-2 gridCell" style="height:70px; ">
+						<p class="gridParagraph boldText">Quantity</p>
+					</div>
+
+					<div class="col-lg-7 col-md-7 gridCell" style="height:70px; ">
+						<p class="gridParagraph boldText">Teamcomp group name</p>
+					</div>
+
+					<div class="col-lg-3 col-md-3 gridCell" style="height:70px; ">
+						<p class="gridParagraph boldText">Teamcomp points</p>
+					</div>
+				</div>
+				@foreach (var (amount, groupName, points) in Model.BlueTeamTeamcomp)
+				{
+					<div class="row" style="height:50px">
+						<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
+							<p class="gridParagraph">@(amount)x</p>
+						</div>
+
+						<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
+							<p class="gridParagraph">@groupName</p>
+						</div>
+
+						<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
+							<p class="gridParagraph">@points</p>
+						</div>
+					</div>
+				}
+
+				<div class="row" style="height:50px">
+					<div class="col-lg-9 col-md-9 gridCell" style="height:50px; ">
+						<p class="gridParagraph boldText">Total teamcomp points</p>
+					</div>
+
+					<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
+						<p class="gridParagraph boldText">@Model.BlueTotalTeamcompPoints</p>
+					</div>
+				</div>
+			</div>
+
+			<div id="red_teamcomp" class="container redBorder" style="display: inline-block; width:500px; margin: 10px 10px 10px 10px">
+				<div class="row" style="height:70px">
+					<div class="col-lg-2 col-md-2 gridCell" style="height:70px; ">
+						<p class="gridParagraph boldText">Quantity</p>
+					</div>
+
+					<div class="col-lg-7 col-md-7 gridCell" style="height:70px; ">
+						<p class="gridParagraph boldText">Teamcomp group name</p>
+					</div>
+
+					<div class="col-lg-3 col-md-3 gridCell" style="height:70px; ">
+						<p class="gridParagraph boldText">Teamcomp points</p>
+					</div>
+				</div>
+				@foreach (var (amount, groupName, points) in Model.RedTeamTeamcomp)
+				{
+					<div class="row" style="height:50px">
+						<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
+							<p class="gridParagraph">@(amount)x</p>
+						</div>
+
+						<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
+							<p class="gridParagraph">@groupName</p>
+						</div>
+
+						<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
+							<p class="gridParagraph">@points</p>
+						</div>
+					</div>
+				}
+
+				<div class="row" style="height:50px">
+					<div class="col-lg-9 col-md-9 gridCell" style="height:50px; ">
+						<p class="gridParagraph boldText">Total teamcomp points</p>
+					</div>
+
+					<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
+						<p class="gridParagraph boldText">@Model.RedTotalTeamcompPoints</p>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
-
-	<div id="red_champions" class="container redBorder" style="display: inline-block; width:500px; margin: 10px 10px 30px 10px">
-		<div class="row" style="height:70px">
-			<div class="col-lg-6 col-md-6 gridCell" style="height:70px;">
-				<p class="gridParagraph boldText">Champion name</p>
-			</div>
-
-			<div class="col-lg-2 col-md-2 gridCell" style="height:70px;">
-				<p class="gridParagraph boldText">Winrate</p>
-			</div>
-
-			<div class="col-lg-2 col-md-2 gridCell" style="height:70px;">
-				<p class="gridParagraph boldText">Damage dealt</p>
-			</div>
-			<div class="col-lg-2 col-md-2 gridCell" style="height:70px;">
-				<p class="gridParagraph boldText">Damage received</p>
-			</div>
-		</div>
-		@foreach (var (name, winrate, damageDealt, damageReceived) in Model.RedTeamChampions)
-		{
-			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
-					<p class="gridParagraph">@name</p>
-				</div>
-
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">@winrate%</p>
-				</div>
-
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">@damageDealt</p>
-				</div>
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">@damageReceived</p>
-				</div>
-			</div>
-		}
-
-		<div class="row" style="height:50px">
-			<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
-				<p class="gridParagraph boldText">Average winrate</p>
-			</div>
-
-			<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-				<p class="gridParagraph boldText">@Model.RedAverageWinrate%</p>
-			</div>
-
-			<div class="col-lg-4 col-md-4 gridCell" style="height:50px;">
-			</div>
-		</div>
-	</div>
-
-	<hr class="solid" style="border-top: 2px solid #bbb;">
-
-	<div class="text-center">
-		<h4 class="display-4">Teamcomps</h4>
-	</div>
-
-	<div id="blue_teamcomp" class="container blueBorder" style="display: inline-block; width:500px; margin: 10px 10px 10px 10px">
-		<div class="row" style="height:70px">
-			<div class="col-lg-2 col-md-2 gridCell" style="height:70px; ">
-				<p class="gridParagraph boldText">Quantity</p>
-			</div>
-
-			<div class="col-lg-7 col-md-7 gridCell" style="height:70px; ">
-				<p class="gridParagraph boldText">Teamcomp group name</p>
-			</div>
-
-			<div class="col-lg-3 col-md-3 gridCell" style="height:70px; ">
-				<p class="gridParagraph boldText">Teamcomp points</p>
-			</div>
-		</div>
-		@foreach (var (amount, groupName, points) in Model.BlueTeamTeamcomp)
-		{
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">@(amount)x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">@groupName</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">@points</p>
-				</div>
-			</div>
-		}
-
-		<div class="row" style="height:50px">
-			<div class="col-lg-9 col-md-9 gridCell" style="height:50px; ">
-				<p class="gridParagraph boldText">Total teamcomp points</p>
-			</div>
-
-			<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-				<p class="gridParagraph boldText">@Model.BlueTotalTeamcompPoints</p>
-			</div>
-		</div>
-	</div>
-
-	<div id="red_teamcomp" class="container redBorder" style="display: inline-block; width:500px; margin: 10px 10px 10px 10px">
-		<div class="row" style="height:70px">
-			<div class="col-lg-2 col-md-2 gridCell" style="height:70px; ">
-				<p class="gridParagraph boldText">Quantity</p>
-			</div>
-
-			<div class="col-lg-7 col-md-7 gridCell" style="height:70px; ">
-				<p class="gridParagraph boldText">Teamcomp group name</p>
-			</div>
-
-			<div class="col-lg-3 col-md-3 gridCell" style="height:70px; ">
-				<p class="gridParagraph boldText">Teamcomp points</p>
-			</div>
-		</div>
-		@foreach (var (amount, groupName, points) in Model.RedTeamTeamcomp)
-		{
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">@(amount)x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">@groupName</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">@points</p>
-				</div>
-			</div>
-		}
-
-		<div class="row" style="height:50px">
-			<div class="col-lg-9 col-md-9 gridCell" style="height:50px; ">
-				<p class="gridParagraph boldText">Total teamcomp points</p>
-			</div>
-
-			<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-				<p class="gridParagraph boldText">@Model.RedTotalTeamcompPoints</p>
-			</div>
-		</div>
-	</div>
-</div>
-}
+	}
 </div>
