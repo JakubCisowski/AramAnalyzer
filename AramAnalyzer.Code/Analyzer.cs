@@ -63,7 +63,8 @@ namespace AramAnalyzer.Code
 
 			var BlueTeamTeamcomp = new List<(string Amount, string GroupName, string Points)>();
 			var RedTeamTeamcomp = new List<(string Amount, string GroupName, string Points)>();
-			string PlayerTeam;
+			string PlayerTeam = "";
+			string PlayerChampion = "";
 			double BlueTotalTeamcompPoints = 0;
 			double RedTotalTeamcompPoints = 0;
 
@@ -72,6 +73,13 @@ namespace AramAnalyzer.Code
 			// BLUE TEAM
 			foreach (var participant in Riot.CurrentGame.Participants)
 			{
+				// Get searched player's champion name (only here because it iterates through everyone anyway).
+				if (participant.SummonerName.ToLower() == name.ToLower())
+				{
+					PlayerChampion = Ddragon.GetChampionFullName(Ddragon.GetChampionName(participant.ChampionId));
+					name = participant.SummonerName;
+				}
+
 				if (participant.TeamId == 100)
 				{
 					string championName = Ddragon.GetChampionName(participant.ChampionId);
@@ -164,6 +172,7 @@ namespace AramAnalyzer.Code
 			Report.RedTotalChampionPoints = RedTotalChampionPoints;
 			Report.PlayerTeam = PlayerTeam;
 			Report.PlayerName = name;
+			Report.PlayerChampion = PlayerChampion;
 
 			return Report;
 		}

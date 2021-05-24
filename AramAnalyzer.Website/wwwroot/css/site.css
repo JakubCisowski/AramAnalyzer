@@ -82,6 +82,20 @@ body {
 	position: relative;
 }
 
+.gridCellHighlightedBlue {
+	border-style: double;
+	border-color: #9c9c9c;
+	background: #7ab5ff94;
+	position: relative;
+}
+
+.gridCellHighlightedRed {
+	border-style: double;
+	border-color: #9c9c9c;
+	background: #ff000040;
+	position: relative;
+}
+
 .gridParagraph {
 	margin: 0px;
 	position: absolute;

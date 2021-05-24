@@ -88,19 +88,21 @@
 
 				@foreach (var (name, winrate, damageDealt, damageReceived) in Model.BlueTeamChampions)
 				{
+					string style = name == Model.PlayerChampion ? "gridCellHighlightedBlue" : "gridCell";
+
 					<div class="row" style="height:50px">
-						<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
+						<div class="col-lg-6 col-md-6 @style" style="height:50px;">
 							<p class="gridParagraph">@name</p>
 						</div>
 
-						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+						<div class="col-lg-2 col-md-2 @style" style="height:50px;">
 							<p class="gridParagraph">@winrate%</p>
 						</div>
 
-						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+						<div class="col-lg-2 col-md-2 @style" style="height:50px;">
 							<p class="gridParagraph">@damageDealt</p>
 						</div>
-						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+						<div class="col-lg-2 col-md-2 @style" style="height:50px;">
 							<p class="gridParagraph">@damageReceived</p>
 						</div>
 					</div>
@@ -139,19 +141,21 @@
 				</div>
 				@foreach (var (name, winrate, damageDealt, damageReceived) in Model.RedTeamChampions)
 				{
+					string style = name == Model.PlayerChampion ? "gridCellHighlightedRed" : "gridCell";
+
 					<div class="row" style="height:50px">
-						<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
+						<div class="col-lg-6 col-md-6 @style" style="height:50px;">
 							<p class="gridParagraph">@name</p>
 						</div>
 
-						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+						<div class="col-lg-2 col-md-2 @style" style="height:50px;">
 							<p class="gridParagraph">@winrate%</p>
 						</div>
 
-						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+						<div class="col-lg-2 col-md-2 @style" style="height:50px;">
 							<p class="gridParagraph">@damageDealt</p>
 						</div>
-						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+						<div class="col-lg-2 col-md-2 @style" style="height:50px;">
 							<p class="gridParagraph">@damageReceived</p>
 						</div>
 					</div>
