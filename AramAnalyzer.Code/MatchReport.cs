@@ -4,6 +4,7 @@ namespace AramAnalyzer.Code
 {
 	public class MatchReport
 	{
+		public string PlayerName { get; set; }
 		public string PlayerTeam { get; set; }
 
 		public List<(string Name, double Winrate, string DamageDealt, string DamageReceived)> BlueTeamChampions { get; set; }

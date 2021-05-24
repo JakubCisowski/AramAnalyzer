@@ -163,6 +163,7 @@ namespace AramAnalyzer.Code
 			Report.BlueTotalChampionPoints = BlueTotalChampionPoints;
 			Report.RedTotalChampionPoints = RedTotalChampionPoints;
 			Report.PlayerTeam = PlayerTeam;
+			Report.PlayerName = name;
 
 			return Report;
 		}
