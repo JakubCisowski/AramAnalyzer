@@ -121,7 +121,7 @@ namespace AramAnalyzer.Code
 				var championGroupMembers = BlueTeamChampions.Select(x => x.Name).ToList().Intersect(Data.DataResearch.Research.ChampionGroups[i].Item1.ChampionNames);
 				var points = Data.DataResearch.Research.ChampionGroups[i].Item1.Points[championGroupMembers.Count()];
 
-				BlueTeamTeamcomp.Add((championGroupMembers.Count().ToString(), Data.DataResearch.Research.ChampionGroups[i].Item1.GroupName, points.ToString()));
+				BlueTeamTeamcomp.Add((championGroupMembers.Count().ToString(), Data.DataResearch.Research.ChampionGroups[i].Item1.DisplayName, points.ToString()));
 
 				BlueTotalTeamcompPoints += points;
 			}
@@ -132,7 +132,7 @@ namespace AramAnalyzer.Code
 				var championGroupMembers = RedTeamChampions.Select(x => x.Name).ToList().Intersect(Data.DataResearch.Research.ChampionGroups[i].Item1.ChampionNames);
 				var points = Data.DataResearch.Research.ChampionGroups[i].Item1.Points[championGroupMembers.Count()];
 
-				RedTeamTeamcomp.Add((championGroupMembers.Count().ToString(), Data.DataResearch.Research.ChampionGroups[i].Item1.GroupName, points.ToString()));
+				RedTeamTeamcomp.Add((championGroupMembers.Count().ToString(), Data.DataResearch.Research.ChampionGroups[i].Item1.DisplayName, points.ToString()));
 
 				RedTotalTeamcompPoints += points;
 			}

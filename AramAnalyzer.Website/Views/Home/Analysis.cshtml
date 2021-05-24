@@ -75,22 +75,22 @@
 				</div>
 			</div>
 			
-				@foreach (var blueTeamChampion in Model.BlueTeamChampions)
+				@foreach (var (name, winrate, damageDealt, damageReceived) in Model.BlueTeamChampions)
 				{
 					<div class="row" style="height:50px">
 						<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
-							<p class="gridParagraph">@blueTeamChampion.Name</p>
+							<p class="gridParagraph">@name</p>
 						</div>
 
 						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-							<p class="gridParagraph">@blueTeamChampion.Winrate%</p>
+							<p class="gridParagraph">@winrate%</p>
 						</div>
 
 						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-							<p class="gridParagraph">@blueTeamChampion.DamageDealt</p>
+							<p class="gridParagraph">@damageDealt</p>
 						</div>
 						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-							<p class="gridParagraph">@blueTeamChampion.DamageReceived</p>
+							<p class="gridParagraph">@damageReceived</p>
 						</div>
 					</div>
 				}
@@ -126,22 +126,22 @@
 					<p class="gridParagraph boldText">Damage received</p>
 				</div>
 			</div>
-			@foreach (var redTeamChampion in Model.RedTeamChampions)
+			@foreach (var (name, winrate, damageDealt, damageReceived) in Model.RedTeamChampions)
 			{
 				<div class="row" style="height:50px">
 					<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
-						<p class="gridParagraph">@redTeamChampion.Name</p>
+						<p class="gridParagraph">@name</p>
 					</div>
 
 					<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-						<p class="gridParagraph">@redTeamChampion.Winrate%</p>
+						<p class="gridParagraph">@winrate%</p>
 					</div>
 
 					<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-						<p class="gridParagraph">@redTeamChampion.DamageDealt</p>
+						<p class="gridParagraph">@damageDealt</p>
 					</div>
 					<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-						<p class="gridParagraph">@redTeamChampion.DamageReceived</p>
+						<p class="gridParagraph">@damageReceived</p>
 					</div>
 				</div>
 			}
@@ -180,19 +180,19 @@
 					<p class="gridParagraph boldText">Teamcomp points</p>
 				</div>
 			</div>
-			@foreach (var blueTeamComp in Model.BlueTeamTeamcomp)
+			@foreach (var (amount, groupName, points) in Model.BlueTeamTeamcomp)
 			{
 				<div class="row" style="height:50px">
 					<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-						<p class="gridParagraph">@blueTeamComp.Amount x</p>
+						<p class="gridParagraph">@amount x</p>
 					</div>
 
 					<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-						<p class="gridParagraph">@blueTeamComp.GroupName</p>
+						<p class="gridParagraph">@groupName</p>
 					</div>
 
 					<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-						<p class="gridParagraph">@blueTeamComp.Points</p>
+						<p class="gridParagraph">@points</p>
 					</div>
 				</div>
 			}
@@ -222,19 +222,19 @@
 					<p class="gridParagraph boldText">Teamcomp points</p>
 				</div>
 			</div>
-			@foreach (var redTeamComp in Model.RedTeamTeamcomp)
+			@foreach (var (amount, groupName, points) in Model.RedTeamTeamcomp)
 			{
 				<div class="row" style="height:50px">
 					<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-						<p class="gridParagraph">@redTeamComp.Amount x</p>
+						<p class="gridParagraph">@amount x</p>
 					</div>
 
 					<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-						<p class="gridParagraph">@redTeamComp.GroupName</p>
+						<p class="gridParagraph">@groupName</p>
 					</div>
 
 					<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-						<p class="gridParagraph">@redTeamComp.Points</p>
+						<p class="gridParagraph">@points</p>
 					</div>
 				</div>
 			}
