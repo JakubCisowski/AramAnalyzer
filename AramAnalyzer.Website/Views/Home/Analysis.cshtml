@@ -74,95 +74,36 @@
 					<p class="gridParagraph boldText">Damage received</p>
 				</div>
 			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
-					<p class="gridParagraph">Alistar</p>
-				</div>
+			
+				@foreach (var blueTeamChampion in Model.BlueTeamChampions)
+				{
+					<div class="row" style="height:50px">
+						<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
+							<p class="gridParagraph">@blueTeamChampion.Name</p>
+						</div>
 
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">50.3%</p>
-				</div>
+						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+							<p class="gridParagraph">@blueTeamChampion.Winrate%</p>
+						</div>
 
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">+5%</p>
-				</div>
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">-12%</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
-					<p class="gridParagraph">Akali</p>
-				</div>
-
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">38%</p>
-				</div>
-
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">+200%</p>
-				</div>
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">-500%</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
-					<p class="gridParagraph">Qiyana</p>
-				</div>
-
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">70%</p>
-				</div>
-
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">+400%</p>
-				</div>
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">-400%</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
-					<p class="gridParagraph">Ashe</p>
-				</div>
-
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">58%</p>
-				</div>
-
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">-15%</p>
-				</div>
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">+30%</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
-					<p class="gridParagraph">Kha'Zix</p>
-				</div>
-
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">62%</p>
-				</div>
-
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">+10%</p>
-				</div>
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">-15%</p>
-				</div>
-			</div>
+						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+							<p class="gridParagraph">@blueTeamChampion.DamageDealt</p>
+						</div>
+						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+							<p class="gridParagraph">@blueTeamChampion.DamageReceived</p>
+						</div>
+					</div>
+				}
+			
 			<div class="row" style="height:50px">
 				<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
 					<p class="gridParagraph boldText">Average winrate</p>
 				</div>
-
+			
 				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph boldText">60.2%</p>
+					<p class="gridParagraph boldText">@Model.BlueAverageWinrate%</p>
 				</div>
-
+			
 				<div class="col-lg-4 col-md-4 gridCell" style="height:50px;">
 				</div>
 			</div>
@@ -185,93 +126,33 @@
 					<p class="gridParagraph boldText">Damage received</p>
 				</div>
 			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
-					<p class="gridParagraph">Alistar</p>
-				</div>
+			@foreach (var redTeamChampion in Model.RedTeamChampions)
+			{
+				<div class="row" style="height:50px">
+					<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
+						<p class="gridParagraph">@redTeamChampion.Name</p>
+					</div>
 
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">50.3%</p>
-				</div>
+					<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+						<p class="gridParagraph">@redTeamChampion.Winrate%</p>
+					</div>
 
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">+5%</p>
+					<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+						<p class="gridParagraph">@redTeamChampion.DamageDealt</p>
+					</div>
+					<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+						<p class="gridParagraph">@redTeamChampion.DamageReceived</p>
+					</div>
 				</div>
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">-12%</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
-					<p class="gridParagraph">Akali</p>
-				</div>
-
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">38%</p>
-				</div>
-
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">+200%</p>
-				</div>
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">-500%</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
-					<p class="gridParagraph">Qiyana</p>
-				</div>
-
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">70%</p>
-				</div>
-
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">+400%</p>
-				</div>
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">-400%</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
-					<p class="gridParagraph">Ashe</p>
-				</div>
-
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">58%</p>
-				</div>
-
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">-15%</p>
-				</div>
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">+30%</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
-					<p class="gridParagraph">Kha'Zix</p>
-				</div>
-
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">62%</p>
-				</div>
-
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">+10%</p>
-				</div>
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph">-15%</p>
-				</div>
-			</div>
+			}
+			
 			<div class="row" style="height:50px">
 				<div class="col-lg-6 col-md-6 gridCell" style="height:50px;">
 					<p class="gridParagraph boldText">Average winrate</p>
 				</div>
 
 				<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
-					<p class="gridParagraph boldText">60.2%</p>
+					<p class="gridParagraph boldText">@Model.RedAverageWinrate%</p>
 				</div>
 
 				<div class="col-lg-4 col-md-4 gridCell" style="height:50px;">
@@ -299,149 +180,22 @@
 					<p class="gridParagraph boldText">Teamcomp points</p>
 				</div>
 			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">1x</p>
-				</div>
+			@foreach (var blueTeamComp in Model.BlueTeamTeamcomp)
+			{
+				<div class="row" style="height:50px">
+					<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
+						<p class="gridParagraph">@blueTeamComp.Amount x</p>
+					</div>
 
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">ADC</p>
-				</div>
+					<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
+						<p class="gridParagraph">@blueTeamComp.GroupName</p>
+					</div>
 
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">+130</p>
+					<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
+						<p class="gridParagraph">@blueTeamComp.Points</p>
+					</div>
 				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">0x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">Assassin</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">+300</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">2x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">Battle Caster</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">-180</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">1x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">Poke Caster</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">+650</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">0x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">Burst Caster</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">+100</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">0x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">Bruiser Diver</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">-10</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">0x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">Bruiser Juggernaut</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">-160</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">0x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">Protector Tank</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">+300</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">0x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">Engage Tank</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">+141</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">0x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">Catcher</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">+150</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">1x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">Healer</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">+540</p>
-				</div>
-			</div>
+			}
 
 			<div class="row" style="height:50px">
 				<div class="col-lg-9 col-md-9 gridCell" style="height:50px; ">
@@ -449,7 +203,7 @@
 				</div>
 
 				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph boldText">+103213</p>
+					<p class="gridParagraph boldText">@Model.BlueTotalTeamcompPoints</p>
 				</div>
 			</div>
 		</div>
@@ -468,157 +222,30 @@
 					<p class="gridParagraph boldText">Teamcomp points</p>
 				</div>
 			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">1x</p>
-				</div>
+			@foreach (var redTeamComp in Model.RedTeamTeamcomp)
+			{
+				<div class="row" style="height:50px">
+					<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
+						<p class="gridParagraph">@redTeamComp.Amount x</p>
+					</div>
 
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">ADC</p>
-				</div>
+					<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
+						<p class="gridParagraph">@redTeamComp.GroupName</p>
+					</div>
 
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">+130</p>
+					<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
+						<p class="gridParagraph">@redTeamComp.Points</p>
+					</div>
 				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">0x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">Assassin</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">+300</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">2x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">Battle Caster</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">-180</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">1x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">Poke Caster</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">+650</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">0x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">Burst Caster</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">+100</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">0x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">Bruiser Diver</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">-10</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">0x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">Bruiser Juggernaut</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">-160</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">0x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">Protector Tank</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">+300</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">0x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">Engage Tank</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">+141</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">0x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">Catcher</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">+150</p>
-				</div>
-			</div>
-			<div class="row" style="height:50px">
-				<div class="col-lg-2 col-md-2 gridCell" style="height:50px; ">
-					<p class="gridParagraph">1x</p>
-				</div>
-
-				<div class="col-lg-7 col-md-7 gridCell" style="height:50px; ">
-					<p class="gridParagraph">Healer</p>
-				</div>
-
-				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph">+540</p>
-				</div>
-			</div>
-
+			}
+			
 			<div class="row" style="height:50px">
 				<div class="col-lg-9 col-md-9 gridCell" style="height:50px; ">
 					<p class="gridParagraph boldText">Total teamcomp points</p>
 				</div>
 
 				<div class="col-lg-3 col-md-3 gridCell" style="height:50px; ">
-					<p class="gridParagraph boldText">+103213</p>
+					<p class="gridParagraph boldText">@Model.RedTotalTeamcompPoints</p>
 				</div>
 			</div>
 		</div>
