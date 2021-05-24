@@ -7,6 +7,7 @@ namespace AramAnalyzer.Code
 		public string PlayerName { get; set; }
 		public string PlayerTeam { get; set; }
 		public string PlayerChampion { get; set; }
+		public bool PlatinumWinrates { get; set; }
 
 		public List<(string Name, double Winrate, string DamageDealt, string DamageReceived)> BlueTeamChampions { get; set; }
 		public List<(string Name, double Winrate, string DamageDealt, string DamageReceived)> RedTeamChampions { get; set; }

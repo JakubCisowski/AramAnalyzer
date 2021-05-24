@@ -75,7 +75,17 @@
 					</div>
 
 					<div class="col-lg-2 col-md-2 gridCell" style="height:70px;">
-						<p class="gridParagraph boldText">Winrate</p>
+						<p class="gridParagraph boldText">
+							Winrate
+							@if (Model.PlatinumWinrates)
+							{
+								@("(Plat+)")
+							}
+							else
+							{
+								@("(Iron+)")
+							}
+						</p>
 					</div>
 
 					<div class="col-lg-2 col-md-2 gridCell" style="height:70px;">
@@ -129,7 +139,17 @@
 					</div>
 
 					<div class="col-lg-2 col-md-2 gridCell" style="height:70px;">
-						<p class="gridParagraph boldText">Winrate</p>
+						<p class="gridParagraph boldText">
+							Winrate
+							@if (Model.PlatinumWinrates)
+							{
+								@("(Plat+)")
+							}
+							else
+							{
+								@("(Iron+)")
+							}
+						</p>
 					</div>
 
 					<div class="col-lg-2 col-md-2 gridCell" style="height:70px;">
