@@ -22,43 +22,55 @@
 			<div class="text-center">
 				<h3 class="display-4">Summary</h3>
 			</div>
-			<div id="summary_info" class="container" style="display: inline-block; width:500px; margin: 10px 0 30px 0">
-				<p>@Model.PlayerName (@Model.PlayerRegion.ToUpper()) is on @Model.PlayerTeam team</p>
+			<div id="summary_info" class="container gridCell" style="display: inline-block; width:800px; margin: 10px 0 30px 0; padding: 10px 10px 0 10px">
+				@{
+					string borderStyle = @Model.PlayerTeam.ToUpper() == "BLUE" ? "blueBorder" : "redBorder";
+				}
+				<div class="@borderStyle" style="margin: 0 0 16px 0; border-width: 4px">
+
+					<p class="summaryText" style="margin:0">@Model.PlayerName (@Model.PlayerRegion.ToUpper()) is on @Model.PlayerTeam team</p>
+				</div>
 
 				@{
 					double championsDifference = 0;
 					double teamcompsDifference = 0;
 				}
 
-				<p>
+				<p class="summaryText">
+					@{string championTextStyle = "";}
 					@if (Model.BlueTotalChampionPoints > Model.RedTotalChampionPoints)
 					{
-						@("Blue")
+						championTextStyle = "blueText mediumText";
+						@:<span class="@championTextStyle">Blue team's</span>
 						championsDifference = Model.BlueTotalChampionPoints - Model.RedTotalChampionPoints;
 					}
 					else
 					{
-						@("Red")
+						championTextStyle = "redText mediumText";
+						@:<span class="@championTextStyle">Red team's</span>
 						championsDifference = Model.RedTotalChampionPoints - Model.BlueTotalChampionPoints;
 					}
-					team's champions are better by @championsDifference points
+					champions are better by <span class="@championTextStyle">@championsDifference points</span>
 				</p>
 
-				<p>
+				<p class="summaryText">
+					@{string teamcompTextStyle = "";}
 					@if (Model.BlueTotalTeamcompPoints > Model.RedTotalTeamcompPoints)
 					{
-						@("Blue")
+						teamcompTextStyle = "blueText mediumText";
+						@:<span class="@teamcompTextStyle">Blue team's</span>
 						teamcompsDifference = Model.BlueTotalTeamcompPoints - Model.RedTotalTeamcompPoints;
 					}
 					else
 					{
-						@("Red")
+						teamcompTextStyle = "redText mediumText";
+						@:<span class="@teamcompTextStyle">Red team's</span>
 						teamcompsDifference = Model.RedTotalTeamcompPoints - Model.BlueTotalTeamcompPoints;
 					}
-					team's teamcomp is better by @teamcompsDifference points
+					teamcomp is better by <span class="@teamcompTextStyle">@teamcompsDifference points</span>
 				</p>
 
-				<p>
+				<p class="summaryText" style="font-weight:400">
 					[100 points equal 1% in winrate]
 				</p>
 			</div>

@@ -85,14 +85,14 @@ body {
 .gridCellHighlightedBlue {
 	border-style: double;
 	border-color: #9c9c9c;
-	background: #7ab5ff94;
+	background: #59a3ff;
 	position: relative;
 }
 
 .gridCellHighlightedRed {
 	border-style: double;
 	border-color: #9c9c9c;
-	background: #ff000040;
+	background: #ff00008f;
 	position: relative;
 }
 
@@ -121,14 +121,26 @@ body {
 	font-weight: bold;
 }
 
+.redText {
+	color: #ff00008f;
+}
+
+.blueText {
+	color: #59a3ff;
+}
+
 .blueBorder {
-	border-style: double;
-	border-color: #7ab5ff;
+	border-style: solid;
+	border-color: #59a3ff;
 	border-width: 2px;
 }
 
 .redBorder {
 	border-style: solid;
-	border-color: #ff00006b;
+	border-color: #ff00008f;
 	border-width: 2px;
+}
+
+.summaryText {
+	font-size: 30px !important;
 }
