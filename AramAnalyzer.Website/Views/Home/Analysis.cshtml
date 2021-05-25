@@ -121,15 +121,26 @@
 							<p class="gridParagraph">@name</p>
 						</div>
 
-						<div class="col-lg-2 col-md-2 @style" style="height:50px;">
+						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
 							<p class="gridParagraph">@winrate%</p>
 						</div>
 
-						<div class="col-lg-2 col-md-2 @style" style="height:50px;">
-							<p class="gridParagraph">@damageDealt</p>
+						@{ string balanceStyle = "";
+							if (damageDealt.Length > 0)
+							{
+								balanceStyle = damageDealt[0] == '+' ? "buffText" : "nerfText";
+							}
+							if (damageReceived.Length > 0)
+							{
+								balanceStyle = damageReceived[0] == '-' ? "buffText" : "nerfText";
+							}
+						}
+
+						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+							<p class="gridParagraph @balanceStyle mediumText">@damageDealt</p>
 						</div>
-						<div class="col-lg-2 col-md-2 @style" style="height:50px;">
-							<p class="gridParagraph">@damageReceived</p>
+						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+							<p class="gridParagraph @balanceStyle mediumText">@damageReceived</p>
 						</div>
 					</div>
 				}
@@ -184,15 +195,26 @@
 							<p class="gridParagraph">@name</p>
 						</div>
 
-						<div class="col-lg-2 col-md-2 @style" style="height:50px;">
+						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
 							<p class="gridParagraph">@winrate%</p>
 						</div>
 
-						<div class="col-lg-2 col-md-2 @style" style="height:50px;">
-							<p class="gridParagraph">@damageDealt</p>
+						@{ string balanceStyle = "";
+							if (damageDealt.Length > 0)
+							{
+								balanceStyle = damageDealt[0] == '+' ? "buffText" : "nerfText";
+							}
+							if (damageReceived.Length > 0)
+							{
+								balanceStyle = damageReceived[0] == '-' ? "buffText" : "nerfText";
+							}
+						}
+
+						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+							<p class="gridParagraph @balanceStyle mediumText">@damageDealt</p>
 						</div>
-						<div class="col-lg-2 col-md-2 @style" style="height:50px;">
-							<p class="gridParagraph">@damageReceived</p>
+						<div class="col-lg-2 col-md-2 gridCell" style="height:50px;">
+							<p class="gridParagraph @balanceStyle mediumText">@damageReceived</p>
 						</div>
 					</div>
 				}

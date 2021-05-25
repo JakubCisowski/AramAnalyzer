@@ -129,6 +129,14 @@ body {
 	color: #59a3ff;
 }
 
+.buffText {
+	color: #0bbf21;
+}
+
+.nerfText {
+	color: #e63d54;
+}
+
 .blueBorder {
 	border-style: solid;
 	border-color: #59a3ff;
