@@ -23,7 +23,7 @@
 				<h3 class="display-4">Summary</h3>
 			</div>
 			<div id="summary_info" class="container" style="display: inline-block; width:500px; margin: 10px 0 30px 0">
-				<p>@Model.PlayerName is on @Model.PlayerTeam team</p>
+				<p>@Model.PlayerName (@Model.PlayerRegion.ToUpper()) is on @Model.PlayerTeam team</p>
 
 				@{
 					double championsDifference = 0;

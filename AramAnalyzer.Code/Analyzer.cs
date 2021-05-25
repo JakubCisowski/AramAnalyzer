@@ -184,6 +184,7 @@ namespace AramAnalyzer.Code
 			Report.PlayerName = name;
 			Report.PlayerChampion = PlayerChampion;
 			Report.PlatinumWinrates = platinumWinrates;
+			Report.PlayerRegion = region;
 
 			return Report;
 		}
