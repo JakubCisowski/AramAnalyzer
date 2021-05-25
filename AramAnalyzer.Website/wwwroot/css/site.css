@@ -77,28 +77,32 @@ body {
 -------------------------------------------------- */
 
 .gridCell {
-	border-style: double;
-	border-color: #9c9c9c;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000000;
 	position: relative;
 }
 
 .gridCellHighlightedBlue {
-	border-style: double;
-	border-color: #9c9c9c;
+	border-style: solid;
+	border-color: #000000;
+	border-width: 1px;
 	background: #59a3ff;
 	position: relative;
 }
 
 .gridCellHighlightedRed {
-	border-style: double;
-	border-color: #9c9c9c;
+	border-style: solid;
+	border-color: #000000;
+	border-width: 1px;
 	background: #ff00008f;
 	position: relative;
 }
 
 .gridCellHighlightedGray {
-	border-style: double;
-	border-color: #9c9c9c;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000000;
 	background: #e6e6e6;
 	position: relative;
 }
@@ -140,13 +144,15 @@ body {
 .blueBorder {
 	border-style: solid;
 	border-color: #59a3ff;
-	border-width: 2px;
+	border-width: 4px;
+	border-radius: 7px;
 }
 
 .redBorder {
 	border-style: solid;
 	border-color: #ff00008f;
-	border-width: 2px;
+	border-width: 4px;
+	border-radius: 7px;
 }
 
 .summaryText {
