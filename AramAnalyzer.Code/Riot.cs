@@ -24,7 +24,7 @@ namespace AramAnalyzer.Code
 			}
 		}
 
-		public static bool IsPlayerBlueTeam{ get; set;}
+		public static bool IsPlayerBlueTeam { get; set; }
 
 		static Riot()
 		{
@@ -101,6 +101,12 @@ namespace AramAnalyzer.Code
 
 		public static CurrentGame GetCurrentGameWebsite(string summonerName, string regionString)
 		{
+			// When user refreshes the page while analysis is open (we can't catch form resubmission in that case).
+			if (string.IsNullOrEmpty(summonerName) || string.IsNullOrEmpty(regionString))
+			{
+				throw new Exception($"Please search for a new analysis!\n");
+			}
+
 			// Uppercase first letter of region input (to match Riot enum values).
 			regionString = regionString.ToLower();
 			regionString = regionString.First().ToString().ToUpper() + regionString.Substring(1);

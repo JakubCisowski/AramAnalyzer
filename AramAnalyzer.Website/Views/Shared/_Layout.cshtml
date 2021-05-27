@@ -6,6 +6,7 @@
 	<title>@ViewData["Title"] - AramAnalyzer</title>
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="~/css/site.css" />
+	<script src="~/lib/jquery/dist/jquery.js"></script>
 </head>
 <body>
 	<header>
@@ -26,8 +27,8 @@
 						</li>
 					</ul>
 
-					<form asp-controller="Home" asp-action="Analysis" method="post">
-						<select style="height:30px; margin-top:1px" name="region">
+					<form id="Form" asp-controller="Home" asp-action="Analysis" method="post">
+						<select id="RegionBox" style="height:30px; margin-top:1px" name="region">
 							<option value="Euw">EUW</option>
 							<option value="Eune">EUNE</option>
 							<option value="Na">NA</option>
@@ -39,8 +40,8 @@
 							<option value="Kr">KR</option>
 							<option value="Oce">OCE</option>
 						</select>
-						<input type="text" name="name" placeholder="Summoner name" style="width:220px" />
-						<input type="submit" value="Analyze" />
+						<input id="NameBox" type="text" name="name" placeholder="Summoner name" style="width:220px" />
+						<input id="SubmitForm" type="submit" value="Analyze" />
 
 						<input style="margin-left: 15px" type="checkbox" name="platinumWinrates" id="platinumWinrates" checked />
 						<label for="platinumWinrates">Use Platinum+ winrates?</label>
